@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'data.dart';
 
 class ResponseWidget extends StatelessWidget {
-  final Map<String, String> response;
+  final List<MyCard> response;
 
   const ResponseWidget({super.key, required this.response});
 
@@ -13,12 +14,20 @@ class ResponseWidget extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Text("Cards to be used:", style: Theme.of(context).textTheme.titleLarge),
-          ...response.entries.map((entry) {
-            return ListTile(
-              title: Text("${entry.key}: ${entry.value}"),
+          Center(child: Text("Cards to be used:", style: Theme.of(context).textTheme.titleLarge)),
+          ...response.map((card) {
+            return Card(
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10
+                  ),
+                  Expanded(child: Text(card.expansion)), 
+                  Expanded(child: Text(card.name))
+                ],
+              ),
             );
-          }).toList(),
+          }),
         ],
       ),
     );

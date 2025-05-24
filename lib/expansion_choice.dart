@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
 import 'card_choice.dart';
-
-const List<String> expansions = [
-  'Dominion',
-  'Intrigue',
-  'Alchemy',
-  'Dark Ages',
-  'Adventures',
-  'Empires',
-  'Nocturne',
-];
+import 'data.dart';
 
 class ExpansionChoice extends StatefulWidget {
   const ExpansionChoice({super.key});
@@ -20,17 +11,28 @@ class ExpansionChoice extends StatefulWidget {
 
 class _ExpansionChoiceState extends State<ExpansionChoice> {
   final List<String> _selectedExpansions = [];
+  final TextEditingController _controller = TextEditingController();
+
+  final List<String> expansions = expansionMap.keys.toList();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Choose Expansions'),
       ),
       body: Center(
         child: ListView(
           children: <Widget>[
-            const Text('Select the expansions to include:'),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
+              child: Text(
+                'Select expansions to include:',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            Divider(),
             for (String expansion in expansions)
               CheckboxListTile(
                 title: Text(expansion),
@@ -45,6 +47,23 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
                   });
                 },
               ),
+            Card(
+              child: CheckboxListTile(
+                title: Text('Select All'),
+                value: _selectedExpansions.length == expansions.length,
+                onChanged: (bool? value) {
+                  setState(() {
+                    if (value == true) {
+                      _selectedExpansions.clear();
+                      _selectedExpansions.addAll(expansions);
+                    } else {
+                      _selectedExpansions.clear();
+                    }
+                  });
+                },
+              ),
+            ),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 if (_selectedExpansions.isEmpty) {
@@ -64,10 +83,37 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
               },
               child: Text('Confirm Selection'),
             ),
+            Divider(),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, bottom: 10.0),
+              child: Text(
+                'Randomize sets',
+                style: Theme.of(context).textTheme.titleLarge,
+                ),
+            ),
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                labelText: 'Enter number of sets to use',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+            ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: _randomizeSets,
               child: Text('Randomize expansions based on your selection'),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                    _selectedExpansions.clear();
+                    _selectedExpansions.addAll(expansions);
+                });
+                _randomizeSets();
+              },
+              child: Text('Randomize from all expansions'),
             ),
           ],
         ),
@@ -84,9 +130,26 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
       );
       return;
     }
+    int? numberOfSets = int.tryParse(_controller.text);
+    if (numberOfSets == null || numberOfSets <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a valid number of sets.'),
+        ),
+      );
+      return;
+    }
+    if (numberOfSets > _selectedExpansions.length) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Number of sets exceeds number of selected expansions.'),
+        ),
+      );
+      return;
+    }
 
-    // Randomize the sets based on the selected expansions
-    final randomizedSets = _selectedExpansions.toList()..shuffle();
+    List<String> randomizedSets = _selectedExpansions.toList()..shuffle();
+    randomizedSets = randomizedSets.sublist(0, numberOfSets);
     Navigator.push(
       context,
       MaterialPageRoute(

@@ -2,33 +2,33 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 class CardList {
-  final List<Card> cards;
+  final List<MyCard> cards;
 
   CardList({required this.cards});
 
   static Future<CardList> fromAsset() async {
     final String data = await rootBundle.loadString('assets/data.json');
-    final List<Map<String, dynamic>> json = jsonDecode(data);
+    final List json = jsonDecode(data);
     return CardList(
-      cards: json.map((card) => Card.fromMap(card)).toList(),
+      cards: json.map((card) => MyCard.fromMap(card)).toList(),
     );
   }
 
-  List<Card> getCardsByExpansion(String expansion) {
+  List<MyCard> getCardsByExpansion(String expansion) {
     return cards
         .where((card) => card.expansion == expansion && card.categories.isEmpty)
         .toList();
   }
 
-  List<Card> getPlayset(List<String> selectedExpansions) {
-    List<Card> cardsInExpansions = [];
+  List<MyCard> getPlayset(List<String> selectedExpansions) {
+    List<MyCard> cardsInExpansions = [];
 
     for (String expansion in selectedExpansions) {
       cardsInExpansions.addAll(getCardsByExpansion(expansion));
     }
     cardsInExpansions.shuffle();
     
-    List<Card> playset = [];
+    List<MyCard> playset = [];
     
     for (int i = 0; i < 10; i++) {
       if (cardsInExpansions.isEmpty) {
@@ -38,12 +38,34 @@ class CardList {
     }
     return playset;
   }
+
+  static List<MyCard> sortCards(List<MyCard> cards) {
+    cards.sort((a, b) {
+      int compare = a.expansionIndex.compareTo(b.expansionIndex);
+      if (compare == 0) {
+        return a.name.compareTo(b.name);
+      }
+      return compare;
+    });
+    return cards;
+  }
 }
 
-class Card {
+Map<String, int> expansionMap = {
+  'Dominion': 0,
+  'Intrigue': 1,
+  'Dark Ages': 2,
+  'Alchemy': 3,
+  'Adventures': 4,
+  'Empires': 5,
+  'Nocturne': 6,
+};
+
+class MyCard {
   final String name;
   final List<String> types;
   final String expansion;
+  final int expansionIndex;
   final String text;
   final int? cost;
   final int? victoryPoints;
@@ -54,10 +76,11 @@ class Card {
   final int? coinsCoffers;
   final List<String> categories;
 
-  Card({
+  MyCard({
     required this.name,
     required this.types,
     required this.expansion,
+    required this.expansionIndex,
     required this.text,
     this.cost,
     this.victoryPoints,
@@ -69,16 +92,17 @@ class Card {
     this.categories = const [],
   });
 
-  Card.fromMap(Map<String, dynamic> map)
+  MyCard.fromMap(Map<String, dynamic> map)
       : name = map['name'],
         types = List<String>.from(map['types']),
         expansion = map['set'],
+        expansionIndex = expansionMap[map['set']] ?? 0,
         text = map['text'],
         cost = parseCost(map['cost']),
         victoryPoints = parseVictoryPoints(map['victoryPoints']),
-        debt = parseDebt(map['debt']),
+        debt = parseDebt(map['cost']),
         maxCards = parseMaxCards(map['cards']),
-        actions = parseActions(map['actions']),
+        actions = parseActions(map['actionsVillagers']),
         buys = parseBuys(map['buys']),
         coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
         categories = List<String>.from(map['categories']);
@@ -105,8 +129,14 @@ class Card {
     if (vpString.isEmpty) {
       return null;
     }
-    final int positiveVpValue = int.parse(vpString.split('+')[1].split('VP')[0]);
-    final int negativeVpValue = int.parse(vpString.split('-')[1].split('VP')[0]);
+    int positiveVpValue = 0;
+    int negativeVpValue = 0;
+    if (vpString.contains('+')) {
+      positiveVpValue = int.tryParse(vpString.split('+')[1].split('VP')[0]) ?? 0;
+    }
+    if (vpString.contains('-')) {
+      negativeVpValue = int.tryParse(vpString.split('-')[1].split('VP')[0]) ?? 0;
+    }
     return positiveVpValue - negativeVpValue;
   }
 
@@ -125,8 +155,14 @@ class Card {
     if (maxCardsString.isEmpty) {
       return null;
     }
-    final int positiveMaxCardsValue = int.tryParse(maxCardsString.split('+')[1].split(',')[0]) ?? 0;
-    final int negativeMaxCardsValue = int.tryParse(maxCardsString.split('-')[1].split(',')[0]) ?? 0;
+    int positiveMaxCardsValue = 0;
+    int negativeMaxCardsValue = 0;
+    if (maxCardsString.contains('+')) {
+      positiveMaxCardsValue = int.tryParse(maxCardsString.split('+')[1].split(',')[0]) ?? 0;
+    }
+    if (maxCardsString.contains('-')) {
+      negativeMaxCardsValue = int.tryParse(maxCardsString.split('-')[1].split(',')[0]) ?? 0;
+    }
     return positiveMaxCardsValue - negativeMaxCardsValue;
   }
 
@@ -134,7 +170,16 @@ class Card {
     if (actionsString.isEmpty) {
       return null;
     }
-    final int actionsValue = int.tryParse(actionsString.split('+')[1].split(',')[0]) ?? 0;
+    int actionsValue = 0;
+    if (actionsString.contains('+')) {
+      actionsValue = int.tryParse(actionsString.split('+')[1].split(',')[0]) ?? 0;
+    }
+    if (actionsString.contains('-')) {
+      actionsValue -= int.tryParse(actionsString.split('-')[1].split(',')[0]) ?? 0;
+    }
+    if (actionsString.contains('P')) {
+        actionsValue += int.tryParse(actionsString.split('P')[1].split(',')[0]) ?? 0;
+    }
     return actionsValue;
   }
 
@@ -142,7 +187,10 @@ class Card {
     if (buysString.isEmpty) {
       return null;
     }
-    final int buysValue = int.tryParse(buysString.split('+')[1].split(',')[0]) ?? 0;
+    int buysValue = 0;
+    if (buysString.contains('+')) {
+      buysValue = int.tryParse(buysString.split('+')[1].split(',')[0]) ?? 0;
+    }
     return buysValue;
   }
 
@@ -150,9 +198,16 @@ class Card {
     if (coinsCoffersString.isEmpty) {
       return null;
     }
-    final int coinsValue = int.tryParse(coinsCoffersString.split('\$')[1].split(',')[0]) ?? 0;
-    final int coffersValue = int.tryParse(coinsCoffersString.split('+')[1].split('CFR')[0]) ?? 0;
-    final int coinsCoffersValue = coinsValue + coffersValue;
+    int coinsCoffersValue = 0;
+    if (coinsCoffersString.contains('\$')) {
+        coinsCoffersValue = int.tryParse(coinsCoffersString.split('\$')[1].split(',')[0]) ?? 0;
+    }
+    if (coinsCoffersString.contains('CFR')) {
+        coinsCoffersValue += int.tryParse(coinsCoffersString.split('+')[1].split('CFR')[0]) ?? 0;
+    }
+    if (coinsCoffersString.contains('R')) {
+        coinsCoffersValue -= int.tryParse(coinsCoffersString.split('R')[1].split(',')[0]) ?? 0;
+    }
     return coinsCoffersValue;
   }
 }
