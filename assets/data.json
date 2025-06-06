@@ -1,7 +1,7 @@
 [
     {
         "name": "Cellar",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -21,7 +21,7 @@
     },
     {
         "name": "Chapel",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -41,7 +41,7 @@
     },
     {
         "name": "Moat",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action",
             "Reaction"
@@ -142,7 +142,7 @@
     },
     {
         "name": "Village",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -182,7 +182,7 @@
     },
     {
         "name": "Workshop",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -202,7 +202,7 @@
     },
     {
         "name": "Bureaucrat",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -243,7 +243,7 @@
     },
     {
         "name": "Gardens",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Victory"
         ],
@@ -263,7 +263,7 @@
     },
     {
         "name": "Militia",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -284,7 +284,7 @@
     },
     {
         "name": "Moneylender",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -324,7 +324,7 @@
     },
     {
         "name": "Remodel",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -344,7 +344,7 @@
     },
     {
         "name": "Smithy",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -406,7 +406,7 @@
     },
     {
         "name": "Throne Room",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -447,7 +447,7 @@
     },
     {
         "name": "Council Room",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -467,7 +467,7 @@
     },
     {
         "name": "Festival",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -487,7 +487,7 @@
     },
     {
         "name": "Laboratory",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -507,7 +507,7 @@
     },
     {
         "name": "Library",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -527,7 +527,7 @@
     },
     {
         "name": "Market",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -547,7 +547,7 @@
     },
     {
         "name": "Mine",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -587,7 +587,7 @@
     },
     {
         "name": "Witch",
-        "set": "Dominion",
+        "set": "Dominion, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -800,7 +800,7 @@
     },
     {
         "name": "Courtyard",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -840,7 +840,7 @@
     },
     {
         "name": "Pawn",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -902,7 +902,7 @@
     },
     {
         "name": "Masquerade",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -922,7 +922,7 @@
     },
     {
         "name": "Shanty Town",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -942,7 +942,7 @@
     },
     {
         "name": "Steward",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -962,7 +962,7 @@
     },
     {
         "name": "Swindler",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -983,7 +983,7 @@
     },
     {
         "name": "Wishing Well",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1003,7 +1003,7 @@
     },
     {
         "name": "Baron",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1023,7 +1023,7 @@
     },
     {
         "name": "Bridge",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1043,7 +1043,7 @@
     },
     {
         "name": "Conspirator",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1104,7 +1104,7 @@
     },
     {
         "name": "Ironworks",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1145,7 +1145,7 @@
     },
     {
         "name": "Mining Village",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1225,7 +1225,7 @@
     },
     {
         "name": "Duke",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Victory"
         ],
@@ -1245,7 +1245,7 @@
     },
     {
         "name": "Minion",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -1328,7 +1328,7 @@
     },
     {
         "name": "Torturer",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action",
             "Attack"
@@ -1349,7 +1349,7 @@
     },
     {
         "name": "Trading Post",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1389,7 +1389,7 @@
     },
     {
         "name": "Upgrade",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action"
         ],
@@ -1409,7 +1409,7 @@
     },
     {
         "name": "Harem",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Treasure",
             "Victory"
@@ -1430,7 +1430,7 @@
     },
     {
         "name": "Nobles",
-        "set": "Intrigue, 1E",
+        "set": "Intrigue, 1E, 2E",
         "types": [
             "Action",
             "Victory"
@@ -4507,7 +4507,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Dame Josephine",
@@ -4530,7 +4532,9 @@
         "gain": "",
         "victoryPoints": "+2VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Dame Molly",
@@ -4552,7 +4556,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Dame Natalie",
@@ -4574,7 +4580,9 @@
         "gain": "1?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Dame Sylvia",
@@ -4596,7 +4604,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sir Bailey",
@@ -4618,7 +4628,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sir Destry",
@@ -4640,7 +4652,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sir Martin",
@@ -4662,7 +4676,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sir Michael",
@@ -4684,7 +4700,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sir Vander",
@@ -4704,6 +4722,31 @@
         "exile": "",
         "junk": "",
         "gain": "*1",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Knight",
+        "set": "Dark Ages",
+        "types": [
+            "Action",
+            "Attack",
+            "Knight",
+            "Split pile"
+        ],
+        "cost": "$5",
+        "text": "Each other player reveals the top 2 cards of their deck, trashes one of them costing from $6, and discards the rest. If a Knight is trashed by this, trash this.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "Self?",
+        "exile": "",
+        "junk": "",
+        "gain": "",
         "victoryPoints": "",
         "setup": "",
         "categories": []
@@ -4726,7 +4769,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Mercenary",
@@ -4767,7 +4812,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Hovel",
@@ -4788,7 +4835,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "SetBasic"
+        ]
     },
     {
         "name": "Necropolis",
@@ -4809,7 +4858,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "SetBasic"
+        ]
     },
     {
         "name": "Overgrown Estate",
@@ -4830,7 +4881,9 @@
         "gain": "",
         "victoryPoints": "+0VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "SetBasic"
+        ]
     },
     {
         "name": "Candlestick Maker",
@@ -6179,7 +6232,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Fugitive",
@@ -6200,7 +6255,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Disciple",
@@ -6221,7 +6278,9 @@
         "gain": "1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Teacher",
@@ -6242,7 +6301,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Treasure Hunter",
@@ -6263,7 +6324,9 @@
         "gain": "X",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Warrior",
@@ -6285,7 +6348,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Hero",
@@ -6306,7 +6371,9 @@
         "gain": "1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Champion",
@@ -6327,7 +6394,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Engineer",
@@ -6428,6 +6497,28 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Encampment / Plunder",
+        "set": "Empires",
+        "types": [
+            "Split pile"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
         "categories": []
     },
     {
@@ -6440,6 +6531,28 @@
         "text": "+1 Card. +1 Action Reveal the top card of your deck. If it costs $5 or more, put it into your hand.",
         "actionsVillagers": "+1",
         "cards": "+1, +1?",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Patrician / Emporium",
+        "set": "Empires",
+        "types": [
+            "Split pile"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
         "buys": "",
         "coinsCoffers": "",
         "trashReturn": "",
@@ -6468,6 +6581,28 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Settlers / Bustling Village",
+        "set": "Empires",
+        "types": [
+            "Split pile"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
         "categories": []
     },
     {
@@ -6486,6 +6621,28 @@
         "trashReturn": "1",
         "exile": "",
         "junk": "1?",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Catapult / Rocks",
+        "set": "Empires",
+        "types": [
+            "Split pile"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
         "gain": "",
         "victoryPoints": "",
         "setup": "",
@@ -6572,6 +6729,28 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Gladiator / Fortune",
+        "set": "Empires",
+        "types": [
+            "Split pile"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
         "categories": []
     },
     {
@@ -6592,7 +6771,9 @@
         "gain": "*1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sacrifice",
@@ -6694,7 +6875,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Capital",
@@ -6775,7 +6958,9 @@
         "gain": "",
         "victoryPoints": "*+2VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Forum",
@@ -6856,7 +7041,9 @@
         "gain": "",
         "victoryPoints": "+1VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Wild Hunt",
@@ -6897,7 +7084,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Humble Castle",
@@ -6919,7 +7108,9 @@
         "gain": "",
         "victoryPoints": "+XVP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Crumbling Castle",
@@ -6940,7 +7131,9 @@
         "gain": "*1",
         "victoryPoints": "1VP, *+1VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Small Castle",
@@ -6962,7 +7155,9 @@
         "gain": "1",
         "victoryPoints": "+2VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Haunted Castle",
@@ -6983,7 +7178,9 @@
         "gain": "*1",
         "victoryPoints": "VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Opulent Castle",
@@ -7005,7 +7202,9 @@
         "gain": "",
         "victoryPoints": "+3VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Sprawling Castle",
@@ -7026,7 +7225,9 @@
         "gain": "*1-3",
         "victoryPoints": "+4VP, +3VP?",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Grand Castle",
@@ -7047,7 +7248,9 @@
         "gain": "",
         "victoryPoints": "+5VP, +XVP?",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "King's Castle",
@@ -7067,6 +7270,30 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "+XVP",
+        "setup": "",
+        "categories": [
+            "Non-standard kingdom"
+        ]
+    },
+    {
+        "name": "Castles",
+        "set": "Empires",
+        "types": [
+            "Victory",
+            "Castle",
+            "Split pile"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
         "setup": "",
         "categories": []
     },
@@ -8526,7 +8753,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Wish",
@@ -8587,7 +8816,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Ghost",
@@ -8609,7 +8840,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Zombie Apprentice",
@@ -8630,7 +8863,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Zombie Mason",
@@ -8651,7 +8886,9 @@
         "gain": "1?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Zombie Spy",
@@ -8672,7 +8909,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Haunted Mirror",
@@ -8693,7 +8932,9 @@
         "gain": "*1?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Magic Lamp",
@@ -8714,7 +8955,9 @@
         "gain": "3?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Goat",
@@ -8735,7 +8978,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Pasture",
@@ -8757,7 +9002,9 @@
         "gain": "",
         "victoryPoints": "+XVP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Pouch",
@@ -8778,7 +9025,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Cursed Gold",
@@ -8799,7 +9048,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Lucky Coin",
@@ -8820,7 +9071,9 @@
         "gain": "1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "The Earth's Gift",

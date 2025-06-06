@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:domrand_mobile/expansion_choice.dart';
+import 'package:domrand_mobile/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +32,17 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
+        leading: IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ),
+            );
+          },
+        ),
       ),
       body: Center(
         child: ElevatedButton(

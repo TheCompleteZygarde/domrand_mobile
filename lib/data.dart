@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CardList {
   final List<MyCard> cards;
@@ -7,6 +8,11 @@ class CardList {
   CardList({required this.cards});
 
   static Future<CardList> fromAsset() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final List<String>? preferredExpansions = prefs.getStringList('ownedExpansions');
+    if (preferredExpansions != null && preferredExpansions.isNotEmpty) {
+      ownedExpansions = preferredExpansions;
+    }
     final String data = await rootBundle.loadString('assets/data.json');
     final List json = jsonDecode(data);
     return CardList(
@@ -16,7 +22,7 @@ class CardList {
 
   List<MyCard> getCardsByExpansion(String expansion) {
     return cards
-        .where((card) => card.expansion == expansion && card.categories.isEmpty)
+        .where((card) => card.expansion == expansion && card.categories.isEmpty && !card.types.contains('Heirloom') && !card.types.contains('Shelter') && !card.types.contains('Spirit'))
         .toList();
   }
 
@@ -59,7 +65,29 @@ Map<String, int> expansionMap = {
   'Adventures': 4,
   'Empires': 5,
   'Nocturne': 6,
+  'Seaside': 7,
+  'Prosperity': 8,
+  'Cornucopia': 9,
+  'Hinterlands': 10,
+  'Guilds': 11,
+  'Renaissance': 12,
+  'Menagerie': 13,
+  /* The following expansions are not included in data.json
+  'Allies': 14,
+  'Plunder': 15,
+  'Rising Sun': 16,
+  */
 };
+
+List<String> ownedExpansions = [
+  'Dominion',
+  'Intrigue',
+  'Dark Ages',
+  'Alchemy',
+  'Adventures',
+  'Empires',
+  'Nocturne',
+];
 
 class MyCard {
   final String name;
@@ -75,6 +103,7 @@ class MyCard {
   final int? buys;
   final int? coinsCoffers;
   final List<String> categories;
+  final String? imageUrl;
 
   MyCard({
     required this.name,
@@ -90,13 +119,14 @@ class MyCard {
     this.buys,
     this.coinsCoffers,
     this.categories = const [],
+    this.imageUrl,
   });
 
   MyCard.fromMap(Map<String, dynamic> map)
       : name = map['name'],
         types = List<String>.from(map['types']),
-        expansion = map['set'],
-        expansionIndex = expansionMap[map['set']] ?? 0,
+        expansion = parseExpansion(map['set']),
+        expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 0,
         text = map['text'],
         cost = parseCost(map['cost']),
         victoryPoints = parseVictoryPoints(map['victoryPoints']),
@@ -105,10 +135,11 @@ class MyCard {
         actions = parseActions(map['actionsVillagers']),
         buys = parseBuys(map['buys']),
         coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
-        categories = List<String>.from(map['categories']);
+        categories = List<String>.from(map['categories']),
+        imageUrl = "https://wiki.dominionstrategy.com/index.php/${map['name']}/media/File:${map['name']}.jpg";
 
   static String parseExpansion(String expansionString) {
-    if (expansionString == 'Dominon, 1E') {
+    if (expansionString.contains('Dominion') && expansionString.contains('1E')) {
       return 'Dominion';
     }
     if (expansionString.contains('Intrigue') && expansionString.contains('2E')) {
