@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:crypto/crypto.dart';
 
 class CardList {
   final List<MyCard> cards;
@@ -22,7 +23,7 @@ class CardList {
 
   List<MyCard> getCardsByExpansion(String expansion) {
     return cards
-        .where((card) => card.expansion == expansion && card.categories.isEmpty && !card.types.contains('Heirloom') && !card.types.contains('Shelter') && !card.types.contains('Spirit'))
+        .where((card) => card.expansion == expansion && card.categories.isEmpty)
         .toList();
   }
 
@@ -136,7 +137,7 @@ class MyCard {
         buys = parseBuys(map['buys']),
         coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
         categories = List<String>.from(map['categories']),
-        imageUrl = "https://wiki.dominionstrategy.com/index.php/${map['name']}/media/File:${map['name']}.jpg";
+        imageUrl = MyCard.getImageUrl(map['name']);
 
   static String parseExpansion(String expansionString) {
     if (expansionString.contains('Dominion') && expansionString.contains('1E')) {
@@ -240,5 +241,17 @@ class MyCard {
         coinsCoffersValue -= int.tryParse(coinsCoffersString.split('R')[1].split(',')[0]) ?? 0;
     }
     return coinsCoffersValue;
+  }
+
+  static String getImageUrl(String name) {
+    final fileName = "${name.replaceAll(' ', '_').replaceAll('/', '_')}.jpg";
+
+    final bytes = utf8.encode(fileName);
+    final hash = md5.convert(bytes).toString();
+
+    final x = hash[0];
+    final xy = hash.substring(0, 2);
+
+    return "https://wiki.dominionstrategy.com/images/$x/$xy/$fileName";
   }
 }

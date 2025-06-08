@@ -796,7 +796,9 @@
         "gain": "",
         "victoryPoints": "-1VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Basic"
+        ]
     },
     {
         "name": "Courtyard",
@@ -4401,7 +4403,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Ruined Library",
@@ -4422,7 +4426,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Ruined Market",
@@ -4443,7 +4449,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Ruined Village",
@@ -4464,7 +4472,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Survivors",
@@ -4485,7 +4495,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Dame Anna",
@@ -4729,7 +4741,7 @@
         ]
     },
     {
-        "name": "Knight",
+        "name": "Knights",
         "set": "Dark Ages",
         "types": [
             "Action",
@@ -6502,7 +6514,7 @@
         ]
     },
     {
-        "name": "Encampment / Plunder",
+        "name": "Encampment/Plunder",
         "set": "Empires",
         "types": [
             "Split pile"
@@ -6544,7 +6556,7 @@
         ]
     },
     {
-        "name": "Patrician / Emporium",
+        "name": "Patrician/Emporium",
         "set": "Empires",
         "types": [
             "Split pile"
@@ -6586,7 +6598,7 @@
         ]
     },
     {
-        "name": "Settlers / Bustling Village",
+        "name": "Settlers/Bustling Village",
         "set": "Empires",
         "types": [
             "Split pile"
@@ -6629,7 +6641,7 @@
         ]
     },
     {
-        "name": "Catapult / Rocks",
+        "name": "Catapult/Rocks",
         "set": "Empires",
         "types": [
             "Split pile"
@@ -6734,7 +6746,7 @@
         ]
     },
     {
-        "name": "Gladiator / Fortune",
+        "name": "Gladiator/Fortune",
         "set": "Empires",
         "types": [
             "Split pile"
@@ -9357,7 +9369,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Delusion",
@@ -9377,7 +9391,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Envy",
@@ -9397,7 +9413,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Famine",
@@ -9417,7 +9435,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Fear",
@@ -9437,7 +9457,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Greed",
@@ -9457,7 +9479,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Haunting",
@@ -9477,7 +9501,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Locusts",
@@ -9497,7 +9523,9 @@
         "gain": "1?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Misery",
@@ -9517,7 +9545,9 @@
         "gain": "",
         "victoryPoints": "-2VP",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Plague",
@@ -9537,7 +9567,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Poverty",
@@ -9557,7 +9589,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "War",
@@ -9577,7 +9611,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Landscape"
+        ]
     },
     {
         "name": "Deluded",
