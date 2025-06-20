@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:crypto/crypto.dart';
+import 'package:http/http.dart';
 
 class CardList {
   final List<MyCard> cards;
@@ -104,7 +105,7 @@ class MyCard {
   final int? buys;
   final int? coinsCoffers;
   final List<String> categories;
-  final String? imageUrl;
+  String? imageUrl;
 
   MyCard({
     required this.name,
@@ -137,7 +138,7 @@ class MyCard {
         buys = parseBuys(map['buys']),
         coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
         categories = List<String>.from(map['categories']),
-        imageUrl = MyCard.getImageUrl(map['name']);
+        imageUrl = null;
 
   static String parseExpansion(String expansionString) {
     if (expansionString.contains('Dominion') && expansionString.contains('1E')) {
@@ -243,15 +244,17 @@ class MyCard {
     return coinsCoffersValue;
   }
 
-  static String getImageUrl(String name) {
-    final fileName = "${name.replaceAll(' ', '_').replaceAll('/', '_')}.jpg";
+  Future<String?> getImageUrl() async {
+    if (imageUrl != null) {
+      return imageUrl;
+    }
+    final apiUrl = Uri.parse("https://wiki.dominionstrategy.com/api.php?action=query&titles=File:$name.jpg&prop=imageinfo&iiprop=url&format=json");
 
-    final bytes = utf8.encode(fileName);
-    final hash = md5.convert(bytes).toString();
-
-    final x = hash[0];
-    final xy = hash.substring(0, 2);
-
-    return "https://wiki.dominionstrategy.com/images/$x/$xy/$fileName";
+    final response = await get(apiUrl);
+    if (response.statusCode == 200) {
+      final json = jsonDecode(response.body);
+      imageUrl = json['query']['pages'].values.first['imageinfo'].first['url'];
+    }
+    return imageUrl;
   }
 }

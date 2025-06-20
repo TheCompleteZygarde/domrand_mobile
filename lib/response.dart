@@ -14,14 +14,27 @@ class ResponseWidget extends StatelessWidget {
           title: Text(card.name),
           content: SingleChildScrollView(
             child: FutureBuilder(
-              future: precacheImage(NetworkImage(card.imageUrl ?? ''), context),
+              future: card.getImageUrl(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done) {
-                  return Image.network(card.imageUrl ?? '');
-                } else {
+                if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Text('Error loading image, could not fetch from the wiki');
+                } else if (!snapshot.hasData || snapshot.data == null) {
+                  return Text('No image available');
                 }
-              },
+                final String imageUrl = snapshot.data!;
+                return FutureBuilder(
+                  future: precacheImage(NetworkImage(imageUrl), context),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return Image.network(imageUrl);
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  },
+                );
+              }
             ),
           ),
           actions: [
