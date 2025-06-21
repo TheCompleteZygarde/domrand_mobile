@@ -3,8 +3,9 @@ import 'response.dart';
 import 'data.dart';
 
 class CardChoice extends StatefulWidget {
-  const CardChoice({super.key, required this.selectedExpansions});
+  const CardChoice({super.key, required this.selectedExpansions, required this.cardList});
   final List<String> selectedExpansions;
+  final CardList cardList;
 
   @override
   State<CardChoice> createState() => _CardChoiceState();
@@ -50,13 +51,10 @@ class _CardChoiceState extends State<CardChoice> {
     );
   }
 
-  void _randomizeCards() async {
-    CardList cardList = await CardList.fromAsset();
-    List<MyCard> playset = cardList.getPlayset(widget.selectedExpansions);
+  void _randomizeCards() {
+    List<MyCard> playset = widget.cardList.getPlayset(widget.selectedExpansions);
 
     playset = CardList.sortCards(playset);
-
-    if (!mounted) return;
 
     Navigator.push(
       context,

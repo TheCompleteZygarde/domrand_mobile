@@ -5,7 +5,8 @@ import 'card_choice.dart';
 import 'data.dart';
 
 class ExpansionChoice extends StatefulWidget {
-  const ExpansionChoice({super.key});
+  const ExpansionChoice({super.key, required this.cardList});
+  final CardList cardList;
 
   @override
   State<ExpansionChoice> createState() => _ExpansionChoiceState();
@@ -176,7 +177,7 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CardChoice(selectedExpansions: selectedExpansions),
+        builder: (context) => CardChoice(selectedExpansions: selectedExpansions, cardList: widget.cardList,),
       ),
     );
   }

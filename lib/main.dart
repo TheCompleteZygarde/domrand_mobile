@@ -1,3 +1,4 @@
+import 'package:domrand_mobile/data.dart';
 import 'package:flutter/material.dart';
 import 'package:domrand_mobile/expansion_choice.dart';
 import 'package:domrand_mobile/settings.dart';
@@ -46,11 +47,18 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
+
+            final CardList cardList = await CardList.fromAsset();
+
+            if (!context.mounted) {
+              return;
+            }
+
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ExpansionChoice(),
+                builder: (context) => ExpansionChoice(cardList: cardList)
               ),
             );
           },

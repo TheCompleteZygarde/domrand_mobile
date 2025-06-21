@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 
 class CardList {
@@ -44,6 +44,33 @@ class CardList {
       }
       playset.add(cardsInExpansions.removeAt(0));
     }
+    return playset;
+  }
+
+  List<MyCard> getFairPlayset(List<String> selectedExpansions) {
+    List<List<MyCard>> cardsInExpansions = [];
+
+    for (String expansion in selectedExpansions) {
+        List<MyCard> expCards = getCardsByExpansion(expansion);
+        expCards.shuffle();
+        cardsInExpansions.add(expCards);
+    }
+
+    List<MyCard> playset = [];
+
+    for (int i = 0; i < 10; i++) {
+        if (cardsInExpansions.isEmpty) {
+            break;
+        }
+        int expansionIndex = Random().nextInt(cardsInExpansions.length);
+        if (cardsInExpansions[expansionIndex].isEmpty) {
+            cardsInExpansions.removeAt(expansionIndex);
+            i--;
+            continue;
+        }
+        playset.add(cardsInExpansions[expansionIndex].removeAt(0));
+    }
+
     return playset;
   }
 
