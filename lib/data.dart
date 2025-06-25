@@ -94,17 +94,18 @@ Map<String, int> expansionMap = {
   'Adventures': 4,
   'Empires': 5,
   'Nocturne': 6,
-  'Seaside': 7,
-  'Prosperity': 8,
-  'Cornucopia': 9,
-  'Hinterlands': 10,
-  'Guilds': 11,
-  'Renaissance': 12,
-  'Menagerie': 13,
+  'Seaside': 8,
+  'Prosperity': 9,
+  'Cornucopia': 10,
+  'Hinterlands': 11,
+  'Guilds': 12,
+  'Renaissance': 13,
+  'Menagerie': 14,
+  'Promo': 17,
   /* The following expansions are not included in data.json
-  'Allies': 14,
-  'Plunder': 15,
-  'Rising Sun': 16,
+  'Allies': 15,
+  'Plunder': 16,
+  'Rising Sun': 7,
   */
 };
 
