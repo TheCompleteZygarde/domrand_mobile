@@ -94,6 +94,7 @@ Map<String, int> expansionMap = {
   'Adventures': 4,
   'Empires': 5,
   'Nocturne': 6,
+  'Rising Sun': 7,
   'Seaside': 8,
   'Prosperity': 9,
   'Cornucopia': 10,
@@ -105,7 +106,6 @@ Map<String, int> expansionMap = {
   /* The following expansions are not included in data.json
   'Allies': 15,
   'Plunder': 16,
-  'Rising Sun': 7,
   */
 };
 
@@ -117,6 +117,7 @@ List<String> ownedExpansions = [
   'Adventures',
   'Empires',
   'Nocturne',
+  'Rising Sun',
 ];
 
 class MyCard {

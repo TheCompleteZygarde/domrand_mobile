@@ -12294,6 +12294,1073 @@
         ]
     },
     {
+        "name": "Alley",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Shadow"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Aristocrat",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Artist",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "8DBT",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Change",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Craftsman",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Daimyo",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Command"
+        ],
+        "cost": "6DBT",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Fishmonger",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Shadow"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Gold Mine",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Imperial Envoy",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Kitsune",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Attack",
+            "Omen"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Litter",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Mountain Shrine",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Omen"
+        ],
+        "cost": "5DBT",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Ninja",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Attack",
+            "Shadow"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Poet",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Omen"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Rice",
+        "set": "Rising Sun",
+        "types": [
+            "Treasure"
+        ],
+        "cost": "$7",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Rice Broker",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "River Shrine",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Omen"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Riverboat",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Duration"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Ronin",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Root Cellar",
+        "set": "Rising Sun",
+        "types": [
+            "Action"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Rustic Village",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Omen"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Samurai",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Duration",
+            "Attack"
+        ],
+        "cost": "$6",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Snake Witch",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Attack"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Tanuki",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Shadow"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Tea House",
+        "set": "Rising Sun",
+        "types": [
+            "Action",
+            "Omen"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Amass",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Asceticism",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Continue",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "8DBT",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Credit",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Foresight",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$2",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Gather",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$7",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Kintsugi",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Practice",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$3",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Recieve Tribute",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$5",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Sea Trade",
+        "set": "Rising Sun",
+        "types": [
+            "Event"
+        ],
+        "cost": "$4",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Approacing Army",
+        "set": "Rising Sun",
+        "types": [
+            "Prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Biding Time",
+        "set": "Rising Sun",
+        "types": [
+            "Prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Bureaucracy",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Divine Wind",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Enlightenment",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Flourishing Trade",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Good Harvest",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Great Leader",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Growth",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Harsh Winter",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Kind Emperor",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Panic",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Progress",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Rapid Expansion",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
+        "name": "Sickness",
+        "set": "Rising Sun",
+        "types": [
+            "prophecy"
+        ],
+        "cost": "",
+        "text": "",
+        "actionsvillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinscoffers": "",
+        "trashreturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victorypoints": "",
+        "setup": "",
+        "categories": [
+            "landscape"
+        ]
+    },
+    {
         "name": "Black Market",
         "set": "Promo",
         "types": [
