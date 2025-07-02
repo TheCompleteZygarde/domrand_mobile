@@ -10,11 +10,7 @@ class CardList {
   CardList({required this.cards});
 
   static Future<CardList> fromAsset() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final List<String>? preferredExpansions = prefs.getStringList('ownedExpansions');
-    if (preferredExpansions != null && preferredExpansions.isNotEmpty) {
-      ownedExpansions = preferredExpansions;
-    }
+    refreshOwned();
     final String data = await rootBundle.loadString('assets/data.json');
     final List json = jsonDecode(data);
     return CardList(
@@ -83,6 +79,14 @@ class CardList {
       return compare;
     });
     return cards;
+  }
+  
+  static Future refreshOwned() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final List<String>? preferredExpansions = prefs.getStringList('ownedExpansions');
+    if (preferredExpansions != null && preferredExpansions.isNotEmpty) {
+      ownedExpansions = preferredExpansions;
+    }
   }
 }
 
@@ -157,7 +161,7 @@ class MyCard {
       : name = map['name'],
         types = List<String>.from(map['types']),
         expansion = parseExpansion(map['set']),
-        expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 0,
+        expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 50,
         text = map['text'],
         cost = parseCost(map['cost']),
         victoryPoints = parseVictoryPoints(map['victoryPoints']),

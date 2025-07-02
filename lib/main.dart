@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,17 +21,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
+
+    Future<CardList> cardListFuture = getCardList();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
+        title: Text(widget.title),
         leading: IconButton(
           icon: const Icon(Icons.settings),
           onPressed: () {
@@ -49,7 +56,7 @@ class MyHomePage extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
 
-            final CardList cardList = await CardList.fromAsset();
+            final CardList cardList = await cardListFuture;
 
             if (!context.mounted) {
               return;
@@ -66,5 +73,9 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<CardList> getCardList() async {
+    return await CardList.fromAsset();
   }
 }

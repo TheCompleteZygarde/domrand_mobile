@@ -60,6 +60,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ownedExpansions = _selectedExpansions;
                 final SharedPreferences prefs = await SharedPreferences.getInstance();
                 await prefs.setStringList('ownedExpansions', _selectedExpansions);
+                CardList.refreshOwned();
+                if (!context.mounted) {
+                  return;
+                }
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
               child: const Text('Save Settings'),
