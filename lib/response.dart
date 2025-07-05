@@ -3,8 +3,9 @@ import 'data.dart';
 
 class ResponseWidget extends StatelessWidget {
   final List<MyCard> response;
+  final Set<String> flags;
 
-  const ResponseWidget({super.key, required this.response});
+  const ResponseWidget({super.key, required this.response, required this.flags});
 
   void _showCardImage(BuildContext context, MyCard card) {
     showDialog(
@@ -77,6 +78,48 @@ class ResponseWidget extends StatelessWidget {
               ),
             );
           }),
+          Divider(),
+          Center(child: Text("Setup to do:", style: Theme.of(context).textTheme.titleLarge)),
+          for (MyCard card in response.where((MyCard card) => card.setup != null && card.setup!.isNotEmpty)) 
+            Card(
+              child: Column(
+                children: [
+                  Text(card.name, style: Theme.of(context).textTheme.titleMedium,),
+                  Text(card.setup!),
+                ],
+              ),
+            ),
+          Center(child: Text("You will need:", style: Theme.of(context).textTheme.titleMedium)),
+          Padding(
+            padding: const EdgeInsets.only(left:20.0), 
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (flags.contains("reserve"))
+                  Text("Tavern Mat"),
+                if (flags.contains("debt"))
+                  Text("Debt counters"),
+                if (flags.contains("VPtokens"))
+                  Text("Victory Point tokens"),
+                if (flags.contains("ruins"))
+                  Text("Ruins cards"),
+                if (flags.contains("boons"))
+                  Text("Boons"),
+                if (flags.contains("hexes"))
+                  Text("Hexes"),
+                if (flags.contains("spirits"))
+                  Text("Spirit cards"),
+                if (flags.contains("spoils"))
+                  Text("Spoils cards"),
+                if (flags.contains("wish"))
+                  Text("Wish cards"),
+                if (flags.contains("potion"))
+                  Text("Potion cards"),
+                if (flags.contains("shelters"))
+                  Text("You should play with Shelters.", style: Theme.of(context).textTheme.titleMedium),
+              ],
+            ),
+          ),
         ],
       ),
     );

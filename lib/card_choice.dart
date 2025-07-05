@@ -43,8 +43,15 @@ class _CardChoiceState extends State<CardChoice> {
               onPressed: () {
                 _randomizeCards();
               },
-              child: Text('Randomize cards'),
+              child: Text('Randomize cards fairly'),
             ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                _basicRandom();
+              }, 
+              child: Text('Randomize without weight')
+            )
           ],
         ),
       ),
@@ -52,15 +59,64 @@ class _CardChoiceState extends State<CardChoice> {
   }
 
   void _randomizeCards() {
+    List<MyCard> playset = widget.cardList.getFairPlayset(widget.selectedExpansions);
+    _submitCards(playset);
+  }
+
+  void _basicRandom() {
     List<MyCard> playset = widget.cardList.getPlayset(widget.selectedExpansions);
+    _submitCards(playset);
+  }
+
+  void _submitCards(List<MyCard> playset) {
+    Set<String> flags = {};
+  
+
+    if (playset[0].expansion == "Dark Ages") {
+      flags.add("shelters");
+    }
+
+    for (MyCard card in playset) {
+      if (card.types.contains("Looter")) {
+        flags.add("ruins");
+      }
+      if (card.types.contains("Doom")) {
+        flags.add("hexes");
+      }
+      if (card.types.contains("Reserve") || ["Miser", "Peasant"].contains(card.name)) {
+        flags.add("reserve");
+      }
+      if (card.types.contains("Fate")) {
+        flags.add("boons");
+        flags.add("spirits");
+      }
+      else if (["Devil's Workshop", "Tormentor", "Cemetery", "Exorcist"].contains(card.name)) {
+        flags.add("spirits");
+      }
+      if (card.debt != null || ["Capital", "Gladiator/Fortune"].contains(card.name)) {
+        flags.add("debt");
+      }
+      if (card.types.contains("Gathering") || ["Chariot Race", "Encampment/Plunder", "Groundskeeper", "Patrician/Emporium", "Sacrifice", "Castles"].contains(card.name)) {
+        flags.add("VPtokens");
+      }
+      if (card.text.contains("Spoils")) {
+        flags.add("spoils");
+      }
+      if (["Leprechaun", "Secret Cave"].contains(card.name)) {
+        flags.add("wish");
+      }
+      if (card.potion) {
+        flags.add("potion");
+      }
+    }
 
     playset = CardList.sortCards(playset);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResponseWidget(response: playset),
+        builder: (context) => ResponseWidget(response: playset, flags: flags,),
       ),
     );
-  }
+  } 
 }

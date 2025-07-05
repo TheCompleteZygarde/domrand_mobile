@@ -4760,7 +4760,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Shuffle the knight cards.",
         "categories": []
     },
     {
@@ -8158,7 +8158,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Goat",
         "categories": []
     },
     {
@@ -8179,7 +8179,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Pouch",
         "categories": []
     },
     {
@@ -8220,7 +8220,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Lucky Coin",
         "categories": []
     },
     {
@@ -8303,7 +8303,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Magic Lamp",
         "categories": []
     },
     {
@@ -8365,7 +8365,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "+2VP",
-        "setup": "",
+        "setup": "Heirloom: Haunted Mirror",
         "categories": []
     },
     {
@@ -8465,7 +8465,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Pasture",
         "categories": []
     },
     {
@@ -8613,7 +8613,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "",
-        "setup": "",
+        "setup": "Heirloom: Cursed Gold",
         "categories": []
     },
     {

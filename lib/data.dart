@@ -133,10 +133,12 @@ class MyCard {
   final int? cost;
   final int? victoryPoints;
   final int? debt;
+  final bool potion;
   final int? maxCards;
   final int? actions;
   final int? buys;
   final int? coinsCoffers;
+  final String? setup;
   final List<String> categories;
   String? imageUrl;
 
@@ -149,11 +151,13 @@ class MyCard {
     this.cost,
     this.victoryPoints,
     this.debt,
+    required this.potion,
     this.maxCards,
     this.actions,
     this.buys,
     this.coinsCoffers,
     this.categories = const [],
+    this.setup,
     this.imageUrl,
   });
 
@@ -164,12 +168,14 @@ class MyCard {
         expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 50,
         text = map['text'],
         cost = parseCost(map['cost']),
+        potion = parsePotion(map['cost']),
         victoryPoints = parseVictoryPoints(map['victoryPoints']),
         debt = parseDebt(map['cost']),
         maxCards = parseMaxCards(map['cards']),
         actions = parseActions(map['actionsVillagers']),
         buys = parseBuys(map['buys']),
         coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
+        setup = map['setup'],
         categories = List<String>.from(map['categories']),
         imageUrl = null;
 
@@ -215,6 +221,10 @@ class MyCard {
       return int.tryParse(debtValue.split(' ')[1]);
     }
     return int.tryParse(debtValue);
+  }
+
+  static bool parsePotion(String costString) {
+    return costString.contains("P");
   }
 
   static int? parseMaxCards(String maxCardsString) {
