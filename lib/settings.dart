@@ -60,7 +60,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ownedExpansions = _selectedExpansions;
                 final SharedPreferences prefs = await SharedPreferences.getInstance();
                 await prefs.setStringList('ownedExpansions', _selectedExpansions);
-                CardList.refreshOwned();
                 if (!context.mounted) {
                   return;
                 }
@@ -68,6 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
               child: const Text('Save Settings'),
             ),
+            SizedBox(height: 60),
           ],
         ),
     );

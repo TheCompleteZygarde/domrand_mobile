@@ -70,7 +70,7 @@ class _CardChoiceState extends State<CardChoice> {
 
   void _submitCards(List<MyCard> playset) {
     Set<String> flags = {};
-  
+    Set<MyCard> selectedLandscape = {};
 
     if (playset[0].expansion == "Dark Ages") {
       flags.add("shelters");
@@ -108,6 +108,14 @@ class _CardChoiceState extends State<CardChoice> {
       if (card.potion) {
         flags.add("potion");
       }
+      if (card.types.contains("Omen")) {
+        flags.add("omen");
+        selectedLandscape.addAll(widget.cardList.getCardsByType(widget.selectedExpansions, "Prophecy", 1));
+      }
+    }
+
+    if (selectedLandscape.length < 2) {
+      selectedLandscape.addAll(widget.cardList.getCardsByCategory(widget.selectedExpansions, "Landscape", 2 - selectedLandscape.length));
     }
 
     playset = CardList.sortCards(playset);
@@ -115,7 +123,7 @@ class _CardChoiceState extends State<CardChoice> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResponseWidget(response: playset, flags: flags,),
+        builder: (context) => ResponseWidget(response: playset, landscapeCards: selectedLandscape, flags: flags,),
       ),
     );
   } 

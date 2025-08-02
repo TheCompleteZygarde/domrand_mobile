@@ -31,16 +31,8 @@ class CardList {
       cardsInExpansions.addAll(getCardsByExpansion(expansion));
     }
     cardsInExpansions.shuffle();
-    
-    List<MyCard> playset = [];
-    
-    for (int i = 0; i < 10; i++) {
-      if (cardsInExpansions.isEmpty) {
-        break;
-      }
-      playset.add(cardsInExpansions.removeAt(0));
-    }
-    return playset;
+
+    return cardsInExpansions.take(10).toList();
   }
 
   List<MyCard> getFairPlayset(List<String> selectedExpansions) {
@@ -68,6 +60,24 @@ class CardList {
     }
 
     return playset;
+  }
+
+  List<MyCard> getCardsByCategory(List<String> selectedExpansions, String category, int count) {
+    List<MyCard> cards = [];
+    for (String expansion in selectedExpansions) {
+      cards.addAll(getCardsByExpansion(expansion).where((card) => card.categories.contains(category)));
+    }
+    cards.shuffle();
+    return cards.take(count).toList();
+  }
+
+  List<MyCard> getCardsByType(List<String> selectedExpansions, String type, int count) {
+    List<MyCard> cards = [];
+    for (String expansion in selectedExpansions) {
+      cards.addAll(getCardsByExpansion(expansion).where((card) => card.types.contains(type)));
+    }
+    cards.shuffle();
+    return cards.take(count).toList();
   }
 
   static List<MyCard> sortCards(List<MyCard> cards) {
