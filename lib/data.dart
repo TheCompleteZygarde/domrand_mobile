@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart';
 
@@ -62,22 +65,32 @@ class CardList {
     return playset;
   }
 
-  List<MyCard> getCardsByCategory(List<String> selectedExpansions, String category, int count) {
-    List<MyCard> cards = [];
+  List<MyCard> getLandscapeCards(List<String> selectedExpansions, int count) {
+    List<MyCard> newCards = [];
+    List<String> landscapeTypes = ["Event", "Landmark", "Project", "Way", "Trait"];
     for (String expansion in selectedExpansions) {
-      cards.addAll(getCardsByExpansion(expansion).where((card) => card.categories.contains(category)));
+      newCards.addAll(cards.where((card) => card.types.any((type) => landscapeTypes.contains(type)) && card.expansion == expansion));
     }
-    cards.shuffle();
-    return cards.take(count).toList();
+    newCards.shuffle();
+    return newCards.take(count).toList();
+  }
+
+  List<MyCard> getCardsByCategory(List<String> selectedExpansions, String category, int count) {
+    List<MyCard> newCards = [];
+    for (String expansion in selectedExpansions) {
+      newCards.addAll(cards.where((card) => card.categories.contains(category) && card.expansion == expansion));
+    }
+    newCards.shuffle();
+    return newCards.take(count).toList();
   }
 
   List<MyCard> getCardsByType(List<String> selectedExpansions, String type, int count) {
-    List<MyCard> cards = [];
+    List<MyCard> newCards = [];
     for (String expansion in selectedExpansions) {
-      cards.addAll(getCardsByExpansion(expansion).where((card) => card.types.contains(type)));
+      newCards.addAll(cards.where((card) => card.types.contains(type) && card.expansion == expansion));
     }
-    cards.shuffle();
-    return cards.take(count).toList();
+    newCards.shuffle();
+    return newCards.take(count).toList();
   }
 
   static List<MyCard> sortCards(List<MyCard> cards) {
@@ -151,6 +164,7 @@ class MyCard {
   final String? setup;
   final List<String> categories;
   String? imageUrl;
+  List<MyCard>? subCards;
 
   MyCard({
     required this.name,
@@ -203,7 +217,7 @@ class MyCard {
     if (!costString.contains('\$')) {
       return null;
     }
-    final String costValue = costString.split('\$')[1];
+    final String costValue = costString.split('\$')[1].replaceAll("*", "").split(',')[0];
     return int.tryParse(costValue);
   }
 
@@ -295,6 +309,64 @@ class MyCard {
         coinsCoffersValue -= int.tryParse(coinsCoffersString.split('R')[1].split(',')[0]) ?? 0;
     }
     return coinsCoffersValue;
+  }
+
+  void parseSubCards(CardList cardList) {
+    if (subCards != null) {
+      return;
+    }
+    if (name == "Castles" || name == "Knights") {
+      subCards = cardList.cards.where((card) => card.types.contains(name.substring(0, name.length - 1)) && !card.types.contains("Split pile")).toList();
+      return;
+    }
+    if (name == "Page") {
+      subCards = cardList.cards.sublist(
+        cardList.cards.indexWhere((card) => card.name == "Treasure Hunter"),
+        cardList.cards.indexWhere((card) => card.name == "Champion") + 1
+      );
+      return;
+    }
+    if (name == "Peasant") {
+      subCards = cardList.cards.sublist(
+        cardList.cards.indexWhere((card) => card.name == "Soldier"),
+        cardList.cards.indexWhere((card) => card.name == "Teacher") + 1
+      );
+      return;
+    }
+    if (name.contains("/")) {
+      List<String> subCardNames = name.split("/");
+      subCards = [];
+      for (String subCardName in subCardNames) {
+        MyCard subCard = cardList.cards.firstWhere(
+          (card) => card.name == subCardName.trim()
+        );
+        subCards!.add(subCard);
+      }
+      return;
+    }
+    subCards = [];
+  }
+
+  List<FileImage> getCostImages(CardList cardList) {
+    parseSubCards(cardList);
+    List<FileImage> images = [];
+    if (types.contains("Split pile") && subCards!.length < 4) {
+      for (MyCard subCard in subCards!) {
+        images.addAll(subCard.getCostImages(cardList));
+        images.add(FileImage(File('assets/images/divider.png')));
+      }
+      return images.sublist(0, images.length - 1);
+    }
+    if (cost != null) {
+      images.add(FileImage(File('assets/images/Coin$cost.png')));
+    }
+    if (debt != null) {
+      images.add(FileImage(File('assets/images/Debt$debt.png')));
+    }
+    if (potion) {
+      images.add(FileImage(File('assets/images/Potion.png')));
+    }
+    return images;
   }
 
   Future<String?> getImageUrl() async {

@@ -108,14 +108,14 @@ class _CardChoiceState extends State<CardChoice> {
       if (card.potion) {
         flags.add("potion");
       }
-      if (card.types.contains("Omen")) {
+      if (card.types.contains("Omen") && !flags.contains("omen")) {
         flags.add("omen");
         selectedLandscape.addAll(widget.cardList.getCardsByType(widget.selectedExpansions, "Prophecy", 1));
       }
     }
 
     if (selectedLandscape.length < 2) {
-      selectedLandscape.addAll(widget.cardList.getCardsByCategory(widget.selectedExpansions, "Landscape", 2 - selectedLandscape.length));
+      selectedLandscape.addAll(widget.cardList.getLandscapeCards(widget.selectedExpansions, 2 - selectedLandscape.length));
     }
 
     playset = CardList.sortCards(playset);
@@ -123,7 +123,7 @@ class _CardChoiceState extends State<CardChoice> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResponseWidget(response: playset, landscapeCards: selectedLandscape, flags: flags,),
+        builder: (context) => ResponseWidget(response: playset, landscapeCards: selectedLandscape, flags: flags, cardList: widget.cardList),
       ),
     );
   } 

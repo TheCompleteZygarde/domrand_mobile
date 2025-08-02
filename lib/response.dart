@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'dart:math';
@@ -6,8 +8,9 @@ class ResponseWidget extends StatefulWidget {
   final List<MyCard> response;
   final Set<MyCard> landscapeCards;
   final Set<String> flags;
+  final CardList cardList;
 
-  const ResponseWidget({super.key, required this.response, required this.landscapeCards, required this.flags});
+  const ResponseWidget({super.key, required this.response, required this.landscapeCards, required this.flags, required this.cardList});
 
   @override
   State<ResponseWidget> createState() => _ResponseWidgetState();
@@ -78,10 +81,20 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 onPressed: () => _showCardImage(context, card),
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 10
+                    Image(
+                      image: FileImage(File('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png')),
+                      width: 24,
+                      height: 24,
                     ),
-                    Expanded(child: Text(card.expansion)), 
+                    SizedBox(
+                      width: 5
+                    ),
+                    Expanded(child: Text(card.expansion)),
+                    for (FileImage image in card.getCostImages(widget.cardList))
+                      Image(image: image, width: 24, height: 24),
+                    SizedBox(
+                      width: 5
+                    ),
                     Expanded(child: Text(card.name))
                   ],
                 ),
@@ -89,7 +102,8 @@ class _ResponseWidgetState extends State<ResponseWidget> {
             );
           }),
           Divider(),
-          Center(child: Text("Landscape cards to use:", style: Theme.of(context).textTheme.titleLarge)),
+          if (widget.landscapeCards.isNotEmpty)
+            Center(child: Text("Landscape cards to use:", style: Theme.of(context).textTheme.titleLarge)),
           ...widget.landscapeCards.map((card) {
             return Padding(
               padding: const EdgeInsets.only(top: 4.0),
@@ -97,10 +111,20 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 onPressed: () => _showCardImage(context, card),
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 10
+                    Image(
+                      image: FileImage(File('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png')),
+                      width: 24,
+                      height: 24,
                     ),
-                    Expanded(child: Text(card.expansion)), 
+                    SizedBox(
+                      width: 5
+                    ),
+                    Expanded(child: Text(card.expansion)),
+                    for (FileImage image in card.getCostImages(widget.cardList))
+                      Image(image: image, width: 24, height: 24),
+                    SizedBox(
+                      width: 5
+                    ),
                     Expanded(child: Text(card.name))
                   ],
                 ),

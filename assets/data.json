@@ -2051,7 +2051,7 @@
         "types": [
             "Action"
         ],
-        "cost": "P",
+        "cost": "$2, P",
         "text": "+1 Card. +1 Action. Reveal the top 4 cards of your deck. Put the Coppers and Potions into your hand. Put the rest back in any order.",
         "actionsVillagers": "+1",
         "cards": "+1-5",
@@ -2072,7 +2072,7 @@
             "Action",
             "Attack"
         ],
-        "cost": "P",
+        "cost": "$2, P",
         "text": "+1 Action. Each player (including you) reveals the top card of their deck and either discards it or puts it back, your choice. Then reveal cards from your deck until revealing one that isn't an Action. Put all of those revealed cards into your hand.",
         "actionsVillagers": "+1",
         "cards": "+X",
@@ -2092,7 +2092,7 @@
         "types": [
             "Action"
         ],
-        "cost": "P",
+        "cost": "$2, P",
         "text": "+2 Actions. You may gain an Action card costing up to $5.",
         "actionsVillagers": "+2",
         "cards": "",
@@ -2112,7 +2112,7 @@
         "types": [
             "Action"
         ],
-        "cost": "P",
+        "cost": "$3, P",
         "text": "+2 Cards. +1 Action. When you discard this from play, if you have a Potion in play, you may put this onto your deck.",
         "actionsVillagers": "+1",
         "cards": "+2",
@@ -2133,7 +2133,7 @@
             "Action",
             "Attack"
         ],
-        "cost": "P",
+        "cost": "$3, P",
         "text": "+1 Card. +1 Action. Each other player gains a Curse.",
         "actionsVillagers": "+1",
         "cards": "+1",
@@ -2153,7 +2153,7 @@
         "types": [
             "Treasure"
         ],
-        "cost": "P",
+        "cost": "$3, P",
         "text": "When you play this, count your deck and discard pile. Worth $1 per 5 cards total between them (round down).",
         "actionsVillagers": "",
         "cards": "",
@@ -2173,7 +2173,7 @@
         "types": [
             "Action"
         ],
-        "cost": "P",
+        "cost": "$4, P",
         "text": "Reveal cards from your deck until you reveal 2 Action cards other than Golems. Discard the other cards, then play the Action cards in either order.",
         "actionsVillagers": "P1, P1",
         "cards": "",
@@ -2213,7 +2213,7 @@
         "types": [
             "Action"
         ],
-        "cost": "P",
+        "cost": "$6, P",
         "text": "The player to your left takes an extra turn after this one, in which you can see all cards they can and make all decisions for them. Any cards or DBT they would gain on that turn, you gain instead; any cards of theirs that are trashed are set aside and put in their discard pile at end of turn.",
         "actionsVillagers": "",
         "cards": "",
@@ -4804,7 +4804,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Spoils",
@@ -7084,7 +7086,7 @@
         "types": [
             "Treasure"
         ],
-        "cost": "8DBT",
+        "cost": "$8, 8DBT",
         "text": "+1 Buy. When you play this, double your $ if you haven't yet this turn. When you gain this, gain a Gold per Gladiator you have in play.",
         "actionsVillagers": "",
         "cards": "",
@@ -7295,7 +7297,7 @@
             "Castle",
             "Split pile"
         ],
-        "cost": "$2",
+        "cost": "$3",
         "text": "",
         "actionsVillagers": "",
         "cards": "",
@@ -8787,7 +8789,9 @@
         "gain": "1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Non-standard kingdom"
+        ]
     },
     {
         "name": "Bat",
