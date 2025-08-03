@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'dart:math';
@@ -18,39 +16,74 @@ class ResponseWidget extends StatefulWidget {
 
 class _ResponseWidgetState extends State<ResponseWidget> {
   final TextEditingController _controller = TextEditingController();
+  final CarouselController _carouselController = CarouselController();
   int _startingPlayer = 0;
 
   void _showCardImage(BuildContext context, MyCard card) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        card.parseSubCards(widget.cardList);
         return AlertDialog(
           title: Text(card.name),
-          content: SingleChildScrollView(
-            child: FutureBuilder(
-              future: card.getImageUrl(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Text('Error loading image, could not fetch from the wiki');
-                } else if (!snapshot.hasData || snapshot.data == null) {
-                  return Text('No image available');
-                }
-                final String imageUrl = snapshot.data!;
-                return FutureBuilder(
-                  future: precacheImage(NetworkImage(imageUrl), context),
+          content: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: CarouselView.weighted(
+              controller: _carouselController,
+              itemSnapping: true,
+              flexWeights: const <int>[1, 7, 1],
+              children: [
+                FutureBuilder(
+                  future: card.getImageUrl(),
                   builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      return Image.network(imageUrl);
-                    } else {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Text('Error loading image, could not fetch from the wiki');
+                    } else if (!snapshot.hasData || snapshot.data == null) {
+                      return Text('No image available');
                     }
-                  },
-                );
-              }
+                    final String imageUrl = snapshot.data!;
+                    return FutureBuilder(
+                      future: precacheImage(NetworkImage(imageUrl), context),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return Image.network(imageUrl);
+                        } else {
+                          return Center(child: CircularProgressIndicator());
+                        }
+                      },
+                    );
+                  }
+                ),
+                for (MyCard subCard in card.subCards!)
+                  FutureBuilder(
+                    future: subCard.getImageUrl(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError) {
+                        return Text('Error loading image, could not fetch from the wiki');
+                      } else if (!snapshot.hasData || snapshot.data == null) {
+                        return Text('No image available');
+                      }
+                      final String imageUrl = snapshot.data!;
+                      return FutureBuilder(
+                        future: precacheImage(NetworkImage(imageUrl), context),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.done) {
+                            return Image.network(imageUrl);
+                          } else {
+                            return Center(child: CircularProgressIndicator());
+                          }
+                        },
+                      );
+                    }
+                  ),
+                ]
+              ),
             ),
-          ),
           actions: [
             TextButton(
               child: const Text('Close'),
@@ -82,7 +115,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 child: Row(
                   children: [
                     Image(
-                      image: FileImage(File('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png')),
+                      image: AssetImage('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png'),
                       width: 24,
                       height: 24,
                     ),
@@ -90,7 +123,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                       width: 5
                     ),
                     Expanded(child: Text(card.expansion)),
-                    for (FileImage image in card.getCostImages(widget.cardList))
+                    for (AssetImage image in card.getCostImages(widget.cardList))
                       Image(image: image, width: 24, height: 24),
                     SizedBox(
                       width: 5
@@ -112,7 +145,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 child: Row(
                   children: [
                     Image(
-                      image: FileImage(File('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png')),
+                      image: AssetImage('assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png'),
                       width: 24,
                       height: 24,
                     ),
@@ -120,7 +153,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                       width: 5
                     ),
                     Expanded(child: Text(card.expansion)),
-                    for (FileImage image in card.getCostImages(widget.cardList))
+                    for (AssetImage image in card.getCostImages(widget.cardList))
                       Image(image: image, width: 24, height: 24),
                     SizedBox(
                       width: 5

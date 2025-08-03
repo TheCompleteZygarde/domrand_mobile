@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -347,24 +346,24 @@ class MyCard {
     subCards = [];
   }
 
-  List<FileImage> getCostImages(CardList cardList) {
+  List<AssetImage> getCostImages(CardList cardList) {
     parseSubCards(cardList);
-    List<FileImage> images = [];
+    List<AssetImage> images = [];
     if (types.contains("Split pile") && subCards!.length < 4) {
       for (MyCard subCard in subCards!) {
         images.addAll(subCard.getCostImages(cardList));
-        images.add(FileImage(File('assets/images/divider.png')));
+        images.add(AssetImage('assets/images/divider.png'));
       }
       return images.sublist(0, images.length - 1);
     }
     if (cost != null) {
-      images.add(FileImage(File('assets/images/Coin$cost.png')));
+      images.add(AssetImage('assets/images/Coin$cost.png'));
     }
     if (debt != null) {
-      images.add(FileImage(File('assets/images/Debt$debt.png')));
+      images.add(AssetImage('assets/images/Debt$debt.png'));
     }
     if (potion) {
-      images.add(FileImage(File('assets/images/Potion.png')));
+      images.add(AssetImage('assets/images/Potion.png'));
     }
     return images;
   }
