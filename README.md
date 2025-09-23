@@ -1,16 +1,11 @@
 # domrand_mobile
 
-A new Flutter project.
+An app for randomizing cards for a game of [Dominion](https://en.wikipedia.org/wiki/Dominion_%28card_game%29).
 
-## Getting Started
+You can download the program from the releases tab on the right.
 
-This project is a starting point for a Flutter application.
+## About
 
-A few resources to get you started if this is your first Flutter project:
+This project is built using Flutter. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The simplest way of building it is cloning it onto your computer and running it using the Flutter extension for VSCode.

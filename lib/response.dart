@@ -175,6 +175,15 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 ],
               ),
             ),
+          for (MyCard card in widget.landscapeCards.where((MyCard card) => card.setup != null && card.setup!.isNotEmpty)) 
+            Card(
+              child: Column(
+                children: [
+                  Text(card.name, style: Theme.of(context).textTheme.titleMedium,),
+                  Text(card.setup!),
+                ],
+              ),
+            ),
           Center(child: Text("You will need:", style: Theme.of(context).textTheme.titleMedium)),
           Padding(
             padding: const EdgeInsets.only(left:20.0), 
