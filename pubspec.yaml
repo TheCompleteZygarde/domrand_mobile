@@ -37,6 +37,7 @@ dependencies:
   shared_preferences: ^2.5.3
   crypto: ^3.0.6
   http: ^1.4.0
+  carousel_slider: ^5.1.1
 
 dev_dependencies:
   flutter_test:
