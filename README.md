@@ -2,7 +2,7 @@
 
 An app for randomizing cards for a game of [Dominion](https://en.wikipedia.org/wiki/Dominion_%28card_game%29).
 
-You can download the program from the releases tab on the right.
+You can download the program from the releases tab, download the apk from the latest release.
 
 ## About
 

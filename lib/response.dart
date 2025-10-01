@@ -58,34 +58,51 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                         },
                       ),
                       itemBuilder: (context, index, realIndex) {
-                        return FutureBuilder(
-                          future: allCards[index].getImageUrl(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator());
-                            } else if (snapshot.hasError) {
-                              return Text(
-                                'Error loading image, could not fetch from the wiki',
+                        final imageUrl = allCards[index].imageUrl;
+                        if (imageUrl == null) {
+                          return FutureBuilder(
+                            future: allCards[index].getImageUrl(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              } else if (snapshot.hasError) {
+                                return Text(
+                                  'Error loading image, could not fetch from the wiki',
+                                );
+                              } else if (!snapshot.hasData ||
+                                  snapshot.data == null) {
+                                return Text('No image available');
+                              }
+                              final String imageUrl = snapshot.data!;
+                              return InteractiveViewer(
+                                child: Image.network(
+                                  imageUrl,
+                                  fit: BoxFit.contain,
+                                  loadingBuilder: (ctx, child, progress) {
+                                    if (progress == null) return child;
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
+                                ),
                               );
-                            } else if (!snapshot.hasData ||
-                                snapshot.data == null) {
-                              return Text('No image available');
-                            }
-                            final String imageUrl = snapshot.data!;
-                            return InteractiveViewer(
-                              child: Image.network(
-                                imageUrl,
-                                fit: BoxFit.contain,
-                                loadingBuilder: (ctx, child, progress) {
-                                  if (progress == null) return child;
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                },
-                              ),
-                            );
-                          },
+                            },
+                          );
+                        }
+                        return InteractiveViewer(
+                          child: Image.network(
+                            imageUrl,
+                            fit: BoxFit.contain,
+                            loadingBuilder: (ctx, child, progress) {
+                              if (progress == null) return child;
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            },
+                          ),
                         );
                       },
                     ),
