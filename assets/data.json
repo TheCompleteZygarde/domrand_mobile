@@ -12316,7 +12316,8 @@
         "set": "Allies",
         "types": [
             "Action",
-            "Augur"
+            "Augur",
+            "Split pile"
         ],
         "cost": "$3",
         "text": "This pile starts the game with 4 copies each of Herb Gatherer, Acolyte, Sorceress, and Sibyl, in that order. Only the top card can be gained or bought.",
@@ -12360,10 +12361,11 @@
         "set": "Allies",
         "types": [
             "Action",
-            "Clash"
+            "Clash",
+            "Split pile"
         ],
         "cost": "$3",
-        "text": " This pile starts the game with 4 copies each of Battle Plan, Archer, Warlord, and Territory, in that order. Only the top card can be gained or bought.",
+        "text": "This pile starts the game with 4 copies each of Battle Plan, Archer, Warlord, and Territory, in that order. Only the top card can be gained or bought.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -12470,10 +12472,11 @@
         "set": "Allies",
         "types": [
             "Action",
-            "Townsfolk"
+            "Townsfolk",
+            "Split pile"
         ],
         "cost": "$3",
-        "text": " This pile starts the game with 4 copies each of Town Crier, Blacksmith, Miller, and Elder, in that order. Only the top card can be gained or bought.",
+        "text": "This pile starts the game with 4 copies each of Town Crier, Blacksmith, Miller, and Elder, in that order. Only the top card can be gained or bought.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -12576,10 +12579,11 @@
         "types": [
             "Action",
             "Wizard",
-            "Liaison"
+            "Liaison",
+            "Split pile"
         ],
         "cost": "$3",
-        "text": " This pile starts the game with 4 copies each of Student, Conjurer, Sorcerer, and Lich, in that order. Only the top card can be gained or bought.",
+        "text": "This pile starts the game with 4 copies each of Student, Conjurer, Sorcerer, and Lich, in that order. Only the top card can be gained or bought.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -12663,10 +12667,11 @@
         "set": "Allies",
         "types": [
             "Action",
-            "Odyssey"
+            "Odyssey",
+            "Split pile"
         ],
         "cost": "$3",
-        "text": " This pile starts the game with 4 copies each of Old Map, Voyage, Sunken Treasure, and Distant Shore, in that order. Only the top card can be gained or bought.",
+        "text": "This pile starts the game with 4 copies each of Old Map, Voyage, Sunken Treasure, and Distant Shore, in that order. Only the top card can be gained or bought.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -12772,10 +12777,11 @@
         "set": "Allies",
         "types": [
             "Action",
-            "Fort"
+            "Fort",
+            "Split pile"
         ],
         "cost": "$3",
-        "text": " This pile starts the game with 4 copies each of Tent, Garrison, Hill Fort, and Stronghold, in that order. Only the top card can be gained or bought.",
+        "text": "This pile starts the game with 4 copies each of Tent, Garrison, Hill Fort, and Stronghold, in that order. Only the top card can be gained or bought.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
