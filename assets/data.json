@@ -12748,6 +12748,1282 @@
         "categories": []
     },
     {
+        "name": "Galleria",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "+$3. This turn, when you gain a card costing $3 or $4, +1 Buy.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "+X",
+        "coinsCoffers": "+$3",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Forts",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Fort"
+        ],
+        "cost": "$3",
+        "text": " This pile starts the game with 4 copies each of Tent, Garrison, Hill Fort, and Stronghold, in that order. Only the top card can be gained or bought.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Garrison",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration",
+            "Fort"
+        ],
+        "cost": "$4",
+        "text": "+$2. This turn, when you gain a card, add a token here. At the start of your next turn, remove them for +1 Card each.",
+        "actionsVillagers": "",
+        "cards": "N +X",
+        "buys": "",
+        "coinsCoffers": "+$2",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Guildmaster",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Liaison"
+        ],
+        "cost": "$5",
+        "text": "+$3. This turn, when you gain a card, +1 Favor.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "+$3",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Herb Gatherer",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Augur"
+        ],
+        "cost": "$5",
+        "text": "+1 Buy. Put your deck into your discard pile. Look through it and you may play a Treasure from it. You may rotate the Augurs.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "+1",
+        "coinsCoffers": "P1?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Highwayman",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration",
+            "Attack"
+        ],
+        "cost": "$5",
+        "text": "At the start of your next turn, discard this from play and +3 Cards. Until then, the first Treasure each other player plays each turn does nothing.",
+        "actionsVillagers": "",
+        "cards": "N +3",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Hill Fort",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Fort"
+        ],
+        "cost": "$5",
+        "text": "Gain a card costing up to $4. Choose one: Put it into your hand; or +1 Card and +1 Action.",
+        "actionsVillagers": "+1?",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Hunter",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "+1 Action. Reveal the top 3 cards of your deck. From those cards, put an Action, a Treasure, and a Victory card into your hand. Discard the rest.",
+        "actionsVillagers": "+1",
+        "cards": "+3?",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Importer",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration",
+            "Liaison"
+        ],
+        "cost": "$3",
+        "text": "At the start of your next turn, gain a card costing up to $5. Setup: Each player gets +4 Favors.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "N 1",
+        "victoryPoints": "",
+        "setup": "Each player gets +4 Favors.",
+        "categories": []
+    },
+    {
+        "name": "Innkeeper",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$4",
+        "text": "+1 Action. Choose one: +1 Card; or +3 Cards, then discard 3 cards; or +5 Cards, then discard 6 cards.",
+        "actionsVillagers": "+1",
+        "cards": "+1?",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Lich",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Wizard"
+        ],
+        "cost": "$6",
+        "text": "+6 Cards. +2 Actions. Skip a turn. When you trash this, discard it and gain a cheaper card from the trash.",
+        "actionsVillagers": "+2",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Marquis",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$6",
+        "text": "+1 Buy. +1 Card per card in your hand. Discard down to 10 cards in hand.",
+        "actionsVillagers": "",
+        "cards": "+X, -Y",
+        "buys": "+1",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Merchant Camp",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$3",
+        "text": "+2 Actions. +$1. When you discard this from play, you may put it onto your deck.",
+        "actionsVillagers": "+2",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "+$1",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Miller",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Townsfolk"
+        ],
+        "cost": "$4",
+        "text": "+1 Action. Look at the top 4 cards of your deck. Put one into your hand and discard the rest.",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Modify",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "Trash a card from your hand. Choose one: +1 Card and +1 Action; or gain a card costing up to $2 more than the trashed card.",
+        "actionsVillagers": "+1?",
+        "cards": "+1?",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "1",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Old Map",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Odyssey"
+        ],
+        "cost": "$3",
+        "text": "+1 Card. +1 Action. Discard a card. +1 Card. You may rotate the Odysseys.",
+        "actionsVillagers": "+1",
+        "cards": "+1, -1, +1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Royal Galley",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration"
+        ],
+        "cost": "$4",
+        "text": "+1 Card. You may play a non-Duration Action card from your hand. Set it aside; if you did, then at the start of your next turn, play it.",
+        "actionsVillagers": "P1, N P1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Sentinel",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$3",
+        "text": "Look at the top 5 cards of your deck. You may trash up to 2 of them. Put the rest back in any order.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "0-2?",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Sibyl",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Augur"
+        ],
+        "cost": "$6",
+        "text": "+4 Cards. +1 Action. Put a card from your hand on top of your deck, and another on the bottom.",
+        "actionsVillagers": "+1",
+        "cards": "+4, -2",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Skirmisher",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Attack"
+        ],
+        "cost": "$5",
+        "text": "+1 Card. +1 Action. +$1. This turn, when you gain an Attack card, each other player discards down to 3 cards in hand.",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "+$1",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Sorcerer",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Attack",
+            "Wizard"
+        ],
+        "cost": "$5",
+        "text": "+1 Card. +1 Action. Each other player names a card, then reveals the top card of their deck. If wrong, they gain a Curse.",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "1?",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Sorceress",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Attack",
+            "Augur"
+        ],
+        "cost": "$5",
+        "text": "+1 Action. Name a card. Reveal the top card of your deck and put it into your hand. If it's the named card, each other player gains a Curse.",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "1?",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Specialist",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "You may play an Action or Treasure from your hand. Choose one: Play it again; or gain a copy of it.",
+        "actionsVillagers": "P1, P1?",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "P1, P1?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Stronghold",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Victory",
+            "Duration",
+            "Fort"
+        ],
+        "cost": "$6",
+        "text": "Choose one: +$3; or at the start of your next turn, +3 Cards. +2VP.",
+        "actionsVillagers": "",
+        "cards": "N +3?",
+        "buys": "",
+        "coinsCoffers": "+$3?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "+2VP",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Student",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Wizard",
+            "Liaison"
+        ],
+        "cost": "$3",
+        "text": "+1 Action. You may rotate the Wizards. Trash a card from your hand. If it's a Treasure, +1 Favor and put this onto your deck.",
+        "actionsVillagers": "+1",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "1",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Sunken Treasure",
+        "set": "Allies",
+        "types": [
+            "Treasure",
+            "Odyssey"
+        ],
+        "cost": "$5",
+        "text": "Gain an Action card you don't have a copy of in play.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Swap",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$5",
+        "text": "+1 Card. +1 Action. You may return an Action from your hand to its pile, to gain to your hand a different Action costing up to $5.",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "1?",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Sycophant",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Liaison"
+        ],
+        "cost": "$2",
+        "text": "+1 Action. Discard 3 cards. If you discarded at least one, +$3. When you gain or trash this, +2 Favors.",
+        "actionsVillagers": "+1",
+        "cards": "-3",
+        "buys": "",
+        "coinsCoffers": "+3?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Tent",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Fort"
+        ],
+        "cost": "$3",
+        "text": "+$2. You may rotate the Forts. When you discard this from play, you may put it onto your deck.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "+$2",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Territory",
+        "set": "Allies",
+        "types": [
+            "Victory",
+            "Clash"
+        ],
+        "cost": "$6",
+        "text": "Worth +1VP per differently named Victory card you have. When you gain this, gain a Gold per empty Supply pile.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "X",
+        "victoryPoints": "+XVP",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Town",
+        "set": "Allies",
+        "types": [
+            "Action"
+        ],
+        "cost": "$4",
+        "text": "Choose one: +1 Card and +2 Actions; or +1 Buy and +$2.",
+        "actionsVillagers": "+2?",
+        "cards": "+1?",
+        "buys": "+1?",
+        "coinsCoffers": "+2?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Town Crier",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Townsfolk"
+        ],
+        "cost": "$2",
+        "text": "Choose one: +$2; or gain a Silver; or +1 Card and +1 Action. You may rotate the Townsfolk.",
+        "actionsVillagers": "+1?",
+        "cards": "+1?",
+        "buys": "",
+        "coinsCoffers": "+2?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Underling",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Liaison"
+        ],
+        "cost": "$3",
+        "text": "+1 Card. +1 Action. +1 Favor",
+        "actionsVillagers": "+1",
+        "cards": "+1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": []
+    },
+    {
+        "name": "Voyage",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration",
+            "Odyssey"
+        ],
+        "cost": "$4",
+        "text": "+1 Action. Take an extra turn after this one (but not a 3rd turn in a row), during which you can only play 3 cards from your hand.",
+        "actionsVillagers": "+1",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Warlord",
+        "set": "Allies",
+        "types": [
+            "Action",
+            "Duration",
+            "Attack",
+            "Clash"
+        ],
+        "cost": "$5",
+        "text": "+1 Action. At the start of your next turn, +2 Cards. Until then, other players can't play an Action from their hand that they have 2 or more copies of in play.",
+        "actionsVillagers": "+1",
+        "cards": "N +2",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Mixed Pile Card"
+        ]
+    },
+    {
+        "name": "Architects' Guild",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "When you gain a card, you may spend 2 Favors to gain a cheaper non-Victory card.",
+        "text": "",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Band of Nomads",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When you gain a card costing $3 or more, you may spend a Favor, for +1 Card, or +1 Action, or +1 Buy.",
+        "actionsVillagers": "+1?",
+        "cards": "+1?",
+        "buys": "+1?",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Cave Dwellers",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, you may spend a Favor, to discard a card then draw a card. Repeat as desired.",
+        "actionsVillagers": "",
+        "cards": "-1, +1",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Circle of Witches",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "After playing a Liaison, you may spend 3 Favors to have each other player gain a Curse.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "1",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "City-state",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When you gain an Action card during your turn, you may spend 2 Favors to play it.",
+        "actionsVillagers": "P1?",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Coastal Haven",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When discarding your hand in Clean-up, you may spend any number of Favors to keep that many cards in hand for next turn (you still draw 5).",
+        "actionsVillagers": "",
+        "cards": "N +X",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Crafters' Guild",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, you may spend 2 Favors to gain a card costing up to $4 onto your deck.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "1",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Desert Guides",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, you may spend a Favor to discard your hand and draw 5 cards. Repeat as desired.",
+        "actionsVillagers": "",
+        "cards": "-X, +5",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Family of Inventors",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your Buy phase, you may put a Favor token you have on a non-Victory Supply pile. Cards cost $1 less per Favor token on their piles.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "R1?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Fellowship of Scribes",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "After playing an Action, if you have 4 or fewer cards in hand, you may spend a Favor for +1 Card.",
+        "actionsVillagers": "",
+        "cards": "+1?",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Forest Dwellers",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, you may spend a Favor to look at the top 3 cards of your deck, discard any number and put the rest back in any order.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Gang of Pickpockets",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, discard down to 4 cards in hand unless you spend a Favor.",
+        "actionsVillagers": "",
+        "cards": "-X",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Island Folk",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the end of your turn, you may spend 5 Favors to take an extra turn after this one (but not a 3rd turn in a row).",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "League of Bankers",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your Buy phase, +$1 per 4 Favors you have (round down).",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "+$x",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "League of Shopkeepers",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "After playing a Liaison, if you have 5 or more Favors, +$1, and if 10 or more, +1 Action and +1 Buy.",
+        "actionsVillagers": "+1?",
+        "cards": "",
+        "buys": "+1?",
+        "coinsCoffers": "+$1?",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Market Towns",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "At the start of your Buy phase, you may spend a Favor to play an Action card from your hand. Repeat as desired.",
+        "text": "P1",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Mountain Folk",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your turn, you may spend 5 Favors for +3 Cards.",
+        "actionsVillagers": "",
+        "cards": "+3",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Order of Astrologers",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When shuffling, you may pick one card per Favor you spend to go on top.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Order of Masons",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When shuffling, you may pick up to 2 cards per Favor you spend to put into your discard pile.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Peaceful Cult",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your Buy phase, you may spend any number of Favors to trash that many cards from your hand.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "X",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Plateu Shepherds",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When scoring, pair up your Favors with cards you have costing $2, for +2VP per pair.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "+XVP",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Trappers' Lodge",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "When you gain a card, you may spend a Favor to put it onto your deck.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "",
+        "exile": "",
+        "junk": "",
+        "gain": "",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
+        "name": "Woodworkers' Guild",
+        "set": "Allies",
+        "types": [
+            "Ally"
+        ],
+        "cost": "",
+        "text": "At the start of your Buy phase, you may spend a Favor to trash an Action card from your hand. If you did, gain an Action card.",
+        "actionsVillagers": "",
+        "cards": "",
+        "buys": "",
+        "coinsCoffers": "",
+        "trashReturn": "1?",
+        "exile": "",
+        "junk": "",
+        "gain": "1?",
+        "victoryPoints": "",
+        "setup": "",
+        "categories": [
+            "Landscape"
+        ]
+    },
+    {
         "name": "Alley",
         "set": "Rising Sun",
         "types": [
