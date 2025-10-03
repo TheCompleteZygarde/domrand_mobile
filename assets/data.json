@@ -13082,7 +13082,7 @@
         "name": "Bureaucracy",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you gain a card that doesn't cost $0, gain a Copper.",
@@ -13104,7 +13104,7 @@
         "name": "Divine Wind",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you remove the last Sun, remove all Kingdom card piles from the Supply, and set up 10 new random piles.",
@@ -13126,7 +13126,7 @@
         "name": "Enlightenment",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "Treasures are also Actions. When you play a Treasure in an Action phase, instead of following its instructions, +1 Card and +1 Action.",
@@ -13148,7 +13148,7 @@
         "name": "Flourishing Trade",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "Cards cost $1 less. You may use Action plays as Buys.",
@@ -13170,7 +13170,7 @@
         "name": "Good Harvest",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "The first time you play each differently named Treasure each turn, first, +1 Buy and +$1.",
@@ -13192,7 +13192,7 @@
         "name": "Great Leader",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "After each Action card you play, +1 Action.",
@@ -13214,7 +13214,7 @@
         "name": "Growth",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you gain a Treasure, gain a cheaper card.",
@@ -13236,7 +13236,7 @@
         "name": "Harsh Winter",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you gain a card on your turn, if there's DBT on its pile, take it; otherwise put 2DBT on its pile.",
@@ -13258,7 +13258,7 @@
         "name": "Kind Emperor",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "At the start of your turn, and when you remove the last Sun: Gain an Action to your hand.",
@@ -13280,7 +13280,7 @@
         "name": "Panic",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you play a Treasure, +2 Buys, and when you discard one from play, return it to its pile.",
@@ -13302,7 +13302,7 @@
         "name": "Progress",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you gain a card, put it onto your deck.",
@@ -13324,7 +13324,7 @@
         "name": "Rapid Expansion",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "When you gain an Action or Treasure, set it aside, and play it at the start of your next turn.",
@@ -13346,7 +13346,7 @@
         "name": "Sickness",
         "set": "Rising Sun",
         "types": [
-            "prophecy"
+            "Prophecy"
         ],
         "cost": "",
         "text": "At the start of your turn, choose one: Gain a Curse onto your deck; or discard 3 cards.",
