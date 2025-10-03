@@ -64,6 +64,12 @@ class CardList {
     return playset;
   }
 
+  List<MyCard> getSpecialPlayset() {
+    List<MyCard> playset = [];
+
+    return playset;
+  }
+
   List<MyCard> getLandscapeCards(List<String> selectedExpansions, int count) {
     List<MyCard> newCards = [];
     List<String> landscapeTypes = ["Event", "Landmark", "Project", "Way", "Trait"];
@@ -90,6 +96,27 @@ class CardList {
     }
     newCards.shuffle();
     return newCards.take(count).toList();
+  }
+
+  Set<String> getAllTypes() {
+    Set<String> types = {};
+    for (MyCard card in cards) {
+      types.addAll(card.categories);
+    }
+    return types;
+  }
+  
+  Set<String> getTypes(List<String> selectedExpansions) {
+    List<MyCard> listOfCards = [];
+    Set<String> types = {};
+
+    for (String expansion in selectedExpansions) {
+      listOfCards.addAll(cards.where((card) => card.categories.isEmpty && card.expansion == expansion));
+    }
+    for (MyCard card in listOfCards) {
+      types.addAll(card.types);
+    }
+    return types;
   }
 
   static List<MyCard> sortCards(List<MyCard> cards) {

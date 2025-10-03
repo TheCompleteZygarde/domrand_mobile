@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'response.dart';
+import 'advanced_randomization.dart';
 import 'data.dart';
 
 class CardChoice extends StatefulWidget {
@@ -51,6 +52,13 @@ class _CardChoiceState extends State<CardChoice> {
                 _basicRandom();
               }, 
               child: Text('Randomize without weight')
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                _advancedRandomCards();
+              }, 
+              child: Text('More options')
             )
           ],
         ),
@@ -65,6 +73,20 @@ class _CardChoiceState extends State<CardChoice> {
 
   void _basicRandom() {
     List<MyCard> playset = widget.cardList.getPlayset(widget.selectedExpansions);
+    _submitCards(playset);
+  }
+
+  void _advancedRandomCards() async {
+    dynamic playset = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AdvancedRandomization(selectedExpansions: widget.selectedExpansions, cardList: widget.cardList,),
+      ),
+    );
+    Type type = List<MyCard>;
+    if (playset.runtimeType != type || playset.length < 1) {
+      return;
+    }
     _submitCards(playset);
   }
 
