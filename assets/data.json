@@ -3080,7 +3080,9 @@
         "gain": "1",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Diadem",
@@ -3101,7 +3103,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Followers",
@@ -3123,7 +3127,9 @@
         "gain": "1",
         "victoryPoints": "(+1VP)",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Princess",
@@ -3144,7 +3150,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Trusty Steed",
@@ -3165,7 +3173,9 @@
         "gain": "4?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Crossroads",
@@ -4782,7 +4792,7 @@
         "victoryPoints": "",
         "setup": "",
         "categories": [
-            "Non-standard kingdom"
+            "Not in supply"
         ]
     },
     {
@@ -7626,7 +7636,7 @@
             "Landmark"
         ],
         "cost": "",
-        "text": "At the start of your Buy phase, you may discard an Action card. If you do, take VP here per player.",
+        "text": "At the start of your Buy phase, you may discard an Action card. If you do, take +2VP from here. Setup: Put +6VP here per player.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -7636,7 +7646,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "+VP",
-        "setup": "",
+        "setup": "Put +6VP here per player.",
         "categories": [
             "Landscape"
         ]
@@ -7824,7 +7834,7 @@
             "Landmark"
         ],
         "cost": "",
-        "text": "When you gain a 2nd card in one of your turns, take VP here per player.",
+        "text": "When you gain a 2nd card in one of your turns, take +2VP from here. Setup: Put +6VP here per player.",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -7834,7 +7844,7 @@
         "junk": "",
         "gain": "",
         "victoryPoints": "+VP",
-        "setup": "",
+        "setup": "Put +6VP here per player.",
         "categories": [
             "Landscape"
         ]
@@ -8800,7 +8810,7 @@
             "Night"
         ],
         "cost": "$2*",
-        "text": "Trash up to 2 cards from your hand. If you trashed at least one, exchange this for a Vampire.(This is not in the Supply.)",
+        "text": "Trash up to 2 cards from your hand. If you trashed at least one, exchange this for a Vampire. (This is not in the Supply.)",
         "actionsVillagers": "",
         "cards": "",
         "buys": "",
@@ -8811,7 +8821,9 @@
         "gain": "1?",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Imp",
@@ -8833,7 +8845,7 @@
         "victoryPoints": "",
         "setup": "",
         "categories": [
-            "Non-standard kingdom"
+            "Not in supply"
         ]
     },
     {
@@ -8857,7 +8869,7 @@
         "victoryPoints": "",
         "setup": "",
         "categories": [
-            "Non-standard kingdom"
+            "Not in supply"
         ]
     },
     {
@@ -10865,7 +10877,9 @@
         "gain": "",
         "victoryPoints": "",
         "setup": "",
-        "categories": []
+        "categories": [
+            "Not in supply"
+        ]
     },
     {
         "name": "Camel Train",

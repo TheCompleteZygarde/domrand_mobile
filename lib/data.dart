@@ -332,6 +332,12 @@ class MyCard {
       );
       return;
     }
+    if (name == "Vampire") {
+      subCards = cardList.cards.where((card) => card.name == "Bat").toList();
+    }
+    if (name == "Hermit") {
+      subCards = cardList.cards.where((card) => card.name == "Hermit").toList();
+    }
     if (name.contains("/")) {
       List<String> subCardNames = name.split("/");
       subCards = [];

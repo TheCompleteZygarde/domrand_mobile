@@ -1,2 +1,4 @@
 Advanced randomization
 Add the rest of the sets
+ - Plunder
+ - Cornucopia/guilds 2e
