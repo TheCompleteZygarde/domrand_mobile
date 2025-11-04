@@ -164,11 +164,15 @@ class _ResponseWidgetState extends State<ResponseWidget> {
               padding: const EdgeInsets.only(top: 4.0),
               child: ElevatedButton(
                 onPressed: () => _showCardImage(context, card),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: card.getColor(),
+                  foregroundColor: Colors.black,
+                ),
                 child: Row(
                   children: [
                     Image(
                       image: AssetImage(
-                        'assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png',
+                        'assets/images/expansion/${card.expansion.replaceAll(" ", "_")}_icon.png',
                       ),
                       width: 24,
                       height: 24,
@@ -199,11 +203,15 @@ class _ResponseWidgetState extends State<ResponseWidget> {
               padding: const EdgeInsets.only(top: 4.0),
               child: ElevatedButton(
                 onPressed: () => _showCardImage(context, card),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: card.getColor(),
+                  foregroundColor: Colors.black,
+                ),
                 child: Row(
                   children: [
                     Image(
                       image: AssetImage(
-                        'assets/images/${card.expansion.replaceAll(" ", "_")}_icon.png',
+                        'assets/images/expansion/${card.expansion.replaceAll(" ", "_")}_icon.png',
                       ),
                       width: 24,
                       height: 24,

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart';
 
@@ -15,9 +14,7 @@ class CardList {
     refreshOwned();
     final String data = await rootBundle.loadString('assets/data.json');
     final List json = jsonDecode(data);
-    return CardList(
-      cards: json.map((card) => MyCard.fromMap(card)).toList(),
-    );
+    return CardList(cards: json.map((card) => MyCard.fromMap(card)).toList());
   }
 
   List<MyCard> getCardsByExpansion(String expansion) {
@@ -41,24 +38,24 @@ class CardList {
     List<List<MyCard>> cardsInExpansions = [];
 
     for (String expansion in selectedExpansions) {
-        List<MyCard> expCards = getCardsByExpansion(expansion);
-        expCards.shuffle();
-        cardsInExpansions.add(expCards);
+      List<MyCard> expCards = getCardsByExpansion(expansion);
+      expCards.shuffle();
+      cardsInExpansions.add(expCards);
     }
 
     List<MyCard> playset = [];
 
     for (int i = 0; i < 10; i++) {
-        if (cardsInExpansions.isEmpty) {
-            break;
-        }
-        int expansionIndex = Random().nextInt(cardsInExpansions.length);
-        if (cardsInExpansions[expansionIndex].isEmpty) {
-            cardsInExpansions.removeAt(expansionIndex);
-            i--;
-            continue;
-        }
-        playset.add(cardsInExpansions[expansionIndex].removeAt(0));
+      if (cardsInExpansions.isEmpty) {
+        break;
+      }
+      int expansionIndex = Random().nextInt(cardsInExpansions.length);
+      if (cardsInExpansions[expansionIndex].isEmpty) {
+        cardsInExpansions.removeAt(expansionIndex);
+        i--;
+        continue;
+      }
+      playset.add(cardsInExpansions[expansionIndex].removeAt(0));
     }
 
     return playset;
@@ -66,27 +63,56 @@ class CardList {
 
   List<MyCard> getLandscapeCards(List<String> selectedExpansions, int count) {
     List<MyCard> newCards = [];
-    List<String> landscapeTypes = ["Event", "Landmark", "Project", "Way", "Trait"];
+    List<String> landscapeTypes = [
+      "Event",
+      "Landmark",
+      "Project",
+      "Way",
+      "Trait",
+    ];
     for (String expansion in selectedExpansions) {
-      newCards.addAll(cards.where((card) => card.types.any((type) => landscapeTypes.contains(type)) && card.expansion == expansion));
+      newCards.addAll(
+        cards.where(
+          (card) =>
+              card.types.any((type) => landscapeTypes.contains(type)) &&
+              card.expansion == expansion,
+        ),
+      );
     }
     newCards.shuffle();
     return newCards.take(count).toList();
   }
 
-  List<MyCard> getCardsByCategory(List<String> selectedExpansions, String category, int count) {
+  List<MyCard> getCardsByCategory(
+    List<String> selectedExpansions,
+    String category,
+    int count,
+  ) {
     List<MyCard> newCards = [];
     for (String expansion in selectedExpansions) {
-      newCards.addAll(cards.where((card) => card.categories.contains(category) && card.expansion == expansion));
+      newCards.addAll(
+        cards.where(
+          (card) =>
+              card.categories.contains(category) && card.expansion == expansion,
+        ),
+      );
     }
     newCards.shuffle();
     return newCards.take(count).toList();
   }
 
-  List<MyCard> getCardsByType(List<String> selectedExpansions, String type, int count) {
+  List<MyCard> getCardsByType(
+    List<String> selectedExpansions,
+    String type,
+    int count,
+  ) {
     List<MyCard> newCards = [];
     for (String expansion in selectedExpansions) {
-      newCards.addAll(cards.where((card) => card.types.contains(type) && card.expansion == expansion));
+      newCards.addAll(
+        cards.where(
+          (card) => card.types.contains(type) && card.expansion == expansion,
+        ),
+      );
     }
     newCards.shuffle();
     return newCards.take(count).toList();
@@ -102,10 +128,12 @@ class CardList {
     });
     return cards;
   }
-  
+
   static Future refreshOwned() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final List<String>? preferredExpansions = prefs.getStringList('ownedExpansions');
+    final List<String>? preferredExpansions = prefs.getStringList(
+      'ownedExpansions',
+    );
     if (preferredExpansions != null && preferredExpansions.isNotEmpty) {
       ownedExpansions = preferredExpansions;
     }
@@ -185,28 +213,30 @@ class MyCard {
   });
 
   MyCard.fromMap(Map<String, dynamic> map)
-      : name = map['name'],
-        types = List<String>.from(map['types']),
-        expansion = parseExpansion(map['set']),
-        expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 50,
-        text = map['text'],
-        cost = parseCost(map['cost']),
-        potion = parsePotion(map['cost']),
-        victoryPoints = parseVictoryPoints(map['victoryPoints']),
-        debt = parseDebt(map['cost']),
-        maxCards = parseMaxCards(map['cards']),
-        actions = parseActions(map['actionsVillagers']),
-        buys = parseBuys(map['buys']),
-        coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
-        setup = map['setup'],
-        categories = List<String>.from(map['categories']),
-        imageUrl = null;
+    : name = map['name'],
+      types = List<String>.from(map['types']),
+      expansion = parseExpansion(map['set']),
+      expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 50,
+      text = map['text'],
+      cost = parseCost(map['cost']),
+      potion = parsePotion(map['cost']),
+      victoryPoints = parseVictoryPoints(map['victoryPoints']),
+      debt = parseDebt(map['cost']),
+      maxCards = parseMaxCards(map['cards']),
+      actions = parseActions(map['actionsVillagers']),
+      buys = parseBuys(map['buys']),
+      coinsCoffers = parseCoinsCoffers(map['coinsCoffers']),
+      setup = map['setup'],
+      categories = List<String>.from(map['categories']),
+      imageUrl = null;
 
   static String parseExpansion(String expansionString) {
-    if (expansionString.contains('Dominion') && expansionString.contains('1E')) {
+    if (expansionString.contains('Dominion') &&
+        expansionString.contains('1E')) {
       return 'Dominion';
     }
-    if (expansionString.contains('Intrigue') && expansionString.contains('2E')) {
+    if (expansionString.contains('Intrigue') &&
+        expansionString.contains('2E')) {
       return 'Intrigue';
     }
     return expansionString;
@@ -216,7 +246,8 @@ class MyCard {
     if (!costString.contains('\$')) {
       return null;
     }
-    final String costValue = costString.split('\$')[1].replaceAll("*", "").split(',')[0];
+    final String costValue =
+        costString.split('\$')[1].replaceAll("*", "").split(',')[0];
     return int.tryParse(costValue);
   }
 
@@ -227,10 +258,12 @@ class MyCard {
     int positiveVpValue = 0;
     int negativeVpValue = 0;
     if (vpString.contains('+')) {
-      positiveVpValue = int.tryParse(vpString.split('+')[1].split('VP')[0]) ?? 0;
+      positiveVpValue =
+          int.tryParse(vpString.split('+')[1].split('VP')[0]) ?? 0;
     }
     if (vpString.contains('-')) {
-      negativeVpValue = int.tryParse(vpString.split('-')[1].split('VP')[0]) ?? 0;
+      negativeVpValue =
+          int.tryParse(vpString.split('-')[1].split('VP')[0]) ?? 0;
     }
     return positiveVpValue - negativeVpValue;
   }
@@ -257,10 +290,12 @@ class MyCard {
     int positiveMaxCardsValue = 0;
     int negativeMaxCardsValue = 0;
     if (maxCardsString.contains('+')) {
-      positiveMaxCardsValue = int.tryParse(maxCardsString.split('+')[1].split(',')[0]) ?? 0;
+      positiveMaxCardsValue =
+          int.tryParse(maxCardsString.split('+')[1].split(',')[0]) ?? 0;
     }
     if (maxCardsString.contains('-')) {
-      negativeMaxCardsValue = int.tryParse(maxCardsString.split('-')[1].split(',')[0]) ?? 0;
+      negativeMaxCardsValue =
+          int.tryParse(maxCardsString.split('-')[1].split(',')[0]) ?? 0;
     }
     return positiveMaxCardsValue - negativeMaxCardsValue;
   }
@@ -271,13 +306,16 @@ class MyCard {
     }
     int actionsValue = 0;
     if (actionsString.contains('+')) {
-      actionsValue = int.tryParse(actionsString.split('+')[1].split(',')[0]) ?? 0;
+      actionsValue =
+          int.tryParse(actionsString.split('+')[1].split(',')[0]) ?? 0;
     }
     if (actionsString.contains('-')) {
-      actionsValue -= int.tryParse(actionsString.split('-')[1].split(',')[0]) ?? 0;
+      actionsValue -=
+          int.tryParse(actionsString.split('-')[1].split(',')[0]) ?? 0;
     }
     if (actionsString.contains('P')) {
-        actionsValue += int.tryParse(actionsString.split('P')[1].split(',')[0]) ?? 0;
+      actionsValue +=
+          int.tryParse(actionsString.split('P')[1].split(',')[0]) ?? 0;
     }
     return actionsValue;
   }
@@ -299,13 +337,16 @@ class MyCard {
     }
     int coinsCoffersValue = 0;
     if (coinsCoffersString.contains('\$')) {
-        coinsCoffersValue = int.tryParse(coinsCoffersString.split('\$')[1].split(',')[0]) ?? 0;
+      coinsCoffersValue =
+          int.tryParse(coinsCoffersString.split('\$')[1].split(',')[0]) ?? 0;
     }
     if (coinsCoffersString.contains('CFR')) {
-        coinsCoffersValue += int.tryParse(coinsCoffersString.split('+')[1].split('CFR')[0]) ?? 0;
+      coinsCoffersValue +=
+          int.tryParse(coinsCoffersString.split('+')[1].split('CFR')[0]) ?? 0;
     }
     if (coinsCoffersString.contains('R')) {
-        coinsCoffersValue -= int.tryParse(coinsCoffersString.split('R')[1].split(',')[0]) ?? 0;
+      coinsCoffersValue -=
+          int.tryParse(coinsCoffersString.split('R')[1].split(',')[0]) ?? 0;
     }
     return coinsCoffersValue;
   }
@@ -315,20 +356,27 @@ class MyCard {
       return;
     }
     if (name == "Castles" || name == "Knights") {
-      subCards = cardList.cards.where((card) => card.types.contains(name.substring(0, name.length - 1)) && !card.types.contains("Split pile")).toList();
+      subCards =
+          cardList.cards
+              .where(
+                (card) =>
+                    card.types.contains(name.substring(0, name.length - 1)) &&
+                    !card.types.contains("Split pile"),
+              )
+              .toList();
       return;
     }
     if (name == "Page") {
       subCards = cardList.cards.sublist(
         cardList.cards.indexWhere((card) => card.name == "Treasure Hunter"),
-        cardList.cards.indexWhere((card) => card.name == "Champion") + 1
+        cardList.cards.indexWhere((card) => card.name == "Champion") + 1,
       );
       return;
     }
     if (name == "Peasant") {
       subCards = cardList.cards.sublist(
         cardList.cards.indexWhere((card) => card.name == "Soldier"),
-        cardList.cards.indexWhere((card) => card.name == "Teacher") + 1
+        cardList.cards.indexWhere((card) => card.name == "Teacher") + 1,
       );
       return;
     }
@@ -343,7 +391,7 @@ class MyCard {
       subCards = [];
       for (String subCardName in subCardNames) {
         MyCard subCard = cardList.cards.firstWhere(
-          (card) => card.name == subCardName.trim()
+          (card) => card.name == subCardName.trim(),
         );
         subCards!.add(subCard);
       }
@@ -363,13 +411,13 @@ class MyCard {
       return images.sublist(0, images.length - 1);
     }
     if (cost != null) {
-      images.add(AssetImage('assets/images/Coin$cost.png'));
+      images.add(AssetImage('assets/images/cost/Coin$cost.png'));
     }
     if (debt != null) {
-      images.add(AssetImage('assets/images/Debt$debt.png'));
+      images.add(AssetImage('assets/images/cost/Debt$debt.png'));
     }
     if (potion) {
-      images.add(AssetImage('assets/images/Potion.png'));
+      images.add(AssetImage('assets/images/cost/Potion.png'));
     }
     return images;
   }
@@ -378,7 +426,9 @@ class MyCard {
     if (imageUrl != null) {
       return imageUrl;
     }
-    final apiUrl = Uri.parse("https://wiki.dominionstrategy.com/api.php?action=query&titles=File:$name.jpg&prop=imageinfo&iiprop=url&format=json");
+    final apiUrl = Uri.parse(
+      "https://wiki.dominionstrategy.com/api.php?action=query&titles=File:$name.jpg&prop=imageinfo&iiprop=url&format=json",
+    );
 
     final response = await get(apiUrl);
     if (response.statusCode == 200) {
@@ -386,5 +436,15 @@ class MyCard {
       imageUrl = json['query']['pages'].values.first['imageinfo'].first['url'];
     }
     return imageUrl;
+  }
+
+  Color getColor() {
+    if (types.contains("Victory")) {
+      return Colors.green;
+    }
+    if (types.contains("Treasure")) {
+      return Colors.yellow;
+    }
+    return Colors.grey;
   }
 }
