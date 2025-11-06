@@ -4,7 +4,11 @@ import 'advanced_randomization.dart';
 import 'data.dart';
 
 class CardChoice extends StatefulWidget {
-  const CardChoice({super.key, required this.selectedExpansions, required this.cardList});
+  const CardChoice({
+    super.key,
+    required this.selectedExpansions,
+    required this.cardList,
+  });
   final List<String> selectedExpansions;
   final CardList cardList;
 
@@ -13,7 +17,6 @@ class CardChoice extends StatefulWidget {
 }
 
 class _CardChoiceState extends State<CardChoice> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,16 +53,16 @@ class _CardChoiceState extends State<CardChoice> {
             ElevatedButton(
               onPressed: () {
                 _basicRandom();
-              }, 
-              child: Text('Randomize without weight')
+              },
+              child: Text('Randomize without weight'),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 _advancedRandomCards();
-              }, 
-              child: Text('More options')
-            )
+              },
+              child: Text('More options'),
+            ),
           ],
         ),
       ),
@@ -67,12 +70,16 @@ class _CardChoiceState extends State<CardChoice> {
   }
 
   void _randomizeCards() {
-    List<MyCard> playset = widget.cardList.getFairPlayset(widget.selectedExpansions);
+    List<MyCard> playset = widget.cardList.getFairPlayset(
+      widget.selectedExpansions,
+    );
     _submitCards(playset);
   }
 
   void _basicRandom() {
-    List<MyCard> playset = widget.cardList.getPlayset(widget.selectedExpansions);
+    List<MyCard> playset = widget.cardList.getPlayset(
+      widget.selectedExpansions,
+    );
     _submitCards(playset);
   }
 
@@ -80,7 +87,11 @@ class _CardChoiceState extends State<CardChoice> {
     dynamic playset = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AdvancedRandomization(selectedExpansions: widget.selectedExpansions, cardList: widget.cardList,),
+        builder:
+            (context) => AdvancedRandomization(
+              selectedExpansions: widget.selectedExpansions,
+              cardList: widget.cardList,
+            ),
       ),
     );
     Type type = List<MyCard>;
@@ -105,20 +116,34 @@ class _CardChoiceState extends State<CardChoice> {
       if (card.types.contains("Doom")) {
         flags.add("hexes");
       }
-      if (card.types.contains("Reserve") || ["Miser", "Peasant"].contains(card.name)) {
+      if (card.types.contains("Reserve") ||
+          ["Miser", "Peasant"].contains(card.name)) {
         flags.add("reserve");
       }
       if (card.types.contains("Fate")) {
         flags.add("boons");
         flags.add("spirits");
-      }
-      else if (["Devil's Workshop", "Tormentor", "Cemetery", "Exorcist"].contains(card.name)) {
+      } else if ([
+        "Devil's Workshop",
+        "Tormentor",
+        "Cemetery",
+        "Exorcist",
+      ].contains(card.name)) {
         flags.add("spirits");
       }
-      if (card.debt != null || ["Capital", "Gladiator/Fortune"].contains(card.name)) {
+      if (card.debt != null ||
+          ["Capital", "Gladiator/Fortune"].contains(card.name)) {
         flags.add("debt");
       }
-      if (card.types.contains("Gathering") || ["Chariot Race", "Encampment/Plunder", "Groundskeeper", "Patrician/Emporium", "Sacrifice", "Castles"].contains(card.name)) {
+      if (card.types.contains("Gathering") ||
+          [
+            "Chariot Race",
+            "Encampment/Plunder",
+            "Groundskeeper",
+            "Patrician/Emporium",
+            "Sacrifice",
+            "Castles",
+          ].contains(card.name)) {
         flags.add("VPtokens");
       }
       if (card.text.contains("Spoils")) {
@@ -132,12 +157,29 @@ class _CardChoiceState extends State<CardChoice> {
       }
       if (card.types.contains("Omen") && !flags.contains("omen")) {
         flags.add("omen");
-        selectedLandscape.addAll(widget.cardList.getCardsByType(widget.selectedExpansions, "Prophecy", 1));
+        selectedLandscape.addAll(
+          widget.cardList.getCardsByType(
+            widget.selectedExpansions,
+            "Prophecy",
+            1,
+          ),
+        );
+      }
+      if (card.types.contains("Liaison") && !flags.contains("ally")) {
+        flags.add("ally");
+        selectedLandscape.addAll(
+          widget.cardList.getCardsByType(widget.selectedExpansions, "Ally", 1),
+        );
       }
     }
 
     if (selectedLandscape.length < 2) {
-      selectedLandscape.addAll(widget.cardList.getLandscapeCards(widget.selectedExpansions, 2 - selectedLandscape.length));
+      selectedLandscape.addAll(
+        widget.cardList.getLandscapeCards(
+          widget.selectedExpansions,
+          2 - selectedLandscape.length,
+        ),
+      );
     }
 
     playset = CardList.sortCards(playset);
@@ -145,8 +187,14 @@ class _CardChoiceState extends State<CardChoice> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResponseWidget(response: playset, landscapeCards: selectedLandscape, flags: flags, cardList: widget.cardList),
+        builder:
+            (context) => ResponseWidget(
+              response: playset,
+              landscapeCards: selectedLandscape,
+              flags: flags,
+              cardList: widget.cardList,
+            ),
       ),
     );
-  } 
+  }
 }
