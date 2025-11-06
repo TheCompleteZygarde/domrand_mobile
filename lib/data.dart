@@ -156,9 +156,9 @@ Map<String, int> expansionMap = {
   'Guilds': 12,
   'Renaissance': 13,
   'Menagerie': 14,
+  'Allies': 15,
   'Promo': 17,
   /* The following expansions are not included in data.json
-  'Allies': 15,
   'Plunder': 16,
   */
 };
@@ -355,12 +355,39 @@ class MyCard {
     if (subCards != null) {
       return;
     }
-    if (name == "Castles" || name == "Knights") {
+    if (name == "Castles" ||
+        name == "Knights" ||
+        name == "Augurs" ||
+        name == "Forts" ||
+        name == "Odysseys" ||
+        name == "Wizards") {
       subCards =
           cardList.cards
               .where(
                 (card) =>
                     card.types.contains(name.substring(0, name.length - 1)) &&
+                    !card.types.contains("Split pile"),
+              )
+              .toList();
+      return;
+    }
+    if (name == "Townsfolk") {
+      subCards =
+          cardList.cards
+              .where(
+                (card) =>
+                    card.types.contains("Townsfolk") &&
+                    !card.types.contains("Split pile"),
+              )
+              .toList();
+      return;
+    }
+    if (name == "Clashes") {
+      subCards =
+          cardList.cards
+              .where(
+                (card) =>
+                    card.types.contains("Clash") &&
                     !card.types.contains("Split pile"),
               )
               .toList();
@@ -382,9 +409,11 @@ class MyCard {
     }
     if (name == "Vampire") {
       subCards = cardList.cards.where((card) => card.name == "Bat").toList();
+      return;
     }
     if (name == "Hermit") {
       subCards = cardList.cards.where((card) => card.name == "Hermit").toList();
+      return;
     }
     if (name.contains("/")) {
       List<String> subCardNames = name.split("/");
