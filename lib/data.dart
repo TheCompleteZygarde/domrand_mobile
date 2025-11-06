@@ -381,6 +381,7 @@ class MyCard {
                     !card.types.contains("Split pile"),
               )
               .toList();
+      return;
     }
     if (name == "Clashes") {
       subCards =
@@ -391,6 +392,7 @@ class MyCard {
                     !card.types.contains("Split pile"),
               )
               .toList();
+      return;
     }
     if (name == "Page") {
       subCards = cardList.cards.sublist(
@@ -408,9 +410,11 @@ class MyCard {
     }
     if (name == "Vampire") {
       subCards = cardList.cards.where((card) => card.name == "Bat").toList();
+      return;
     }
     if (name == "Hermit") {
       subCards = cardList.cards.where((card) => card.name == "Hermit").toList();
+      return;
     }
     if (name.contains("/")) {
       List<String> subCardNames = name.split("/");
