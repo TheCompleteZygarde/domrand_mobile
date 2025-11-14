@@ -33,8 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
-    Future<CardList> cardListFuture = getCardList();
+    Future<CardList> cardListFuture = CardList.fromAsset();
 
     return Scaffold(
       appBar: AppBar(
@@ -45,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => const SettingsScreen(),
-              ),
+              MaterialPageRoute(builder: (context) => const SettingsScreen()),
             );
           },
         ),
@@ -55,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
-
             final CardList cardList = await cardListFuture;
 
             if (!context.mounted) {
@@ -65,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ExpansionChoice(cardList: cardList)
+                builder: (context) => ExpansionChoice(cardList: cardList),
               ),
             );
           },
@@ -73,9 +69,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  Future<CardList> getCardList() async {
-    return await CardList.fromAsset();
   }
 }
