@@ -6529,6 +6529,7 @@
         "name": "Encampment/Plunder",
         "set": "Empires",
         "types": [
+            "Action",
             "Split pile"
         ],
         "cost": "",
@@ -6571,6 +6572,7 @@
         "name": "Patrician/Emporium",
         "set": "Empires",
         "types": [
+            "Action",
             "Split pile"
         ],
         "cost": "",
@@ -6613,6 +6615,7 @@
         "name": "Settlers/Bustling Village",
         "set": "Empires",
         "types": [
+            "Action",
             "Split pile"
         ],
         "cost": "",
@@ -6656,6 +6659,8 @@
         "name": "Catapult/Rocks",
         "set": "Empires",
         "types": [
+            "Action",
+            "Attack",
             "Split pile"
         ],
         "cost": "",
@@ -6761,6 +6766,7 @@
         "name": "Gladiator/Fortune",
         "set": "Empires",
         "types": [
+            "Action",
             "Split pile"
         ],
         "cost": "",

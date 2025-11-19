@@ -80,7 +80,17 @@ class CardList {
       );
     }
     newCards.shuffle();
-    return newCards.take(count).toList();
+    List<MyCard> result = newCards.take(count).toList();
+    if (result.length < 2) {
+      return result;
+    }
+    while (["Way"].contains(result.first.types.first) &&
+        result.first.types.first == result.last.types.first) {
+      newCards.shuffle();
+      result = newCards.take(count).toList();
+    }
+
+    return result;
   }
 
   List<MyCard> getCardsByCategory(
@@ -172,6 +182,31 @@ List<String> ownedExpansions = [
   'Empires',
   'Nocturne',
   'Rising Sun',
+];
+
+List<String> colors = [
+  'Action',
+  'Curse',
+  'Duration',
+  'Victory',
+  'Reaction',
+  'Shelter',
+  'Reserve',
+  'Ruins',
+  'Treasure',
+  'Night',
+  //Landscape cards:
+  'Event',
+  'Ally',
+  'Artifact',
+  'Boon',
+  'Hex',
+  'Landmark',
+  'Project',
+  'Prophecy',
+  'State',
+  'Trait',
+  'Way',
 ];
 
 class MyCard {
@@ -475,5 +510,80 @@ class MyCard {
       return Colors.yellow;
     }
     return Colors.grey;
+  }
+
+  String getColorImage() {
+    List<String> colorTypes = [];
+    String path = "assets/images/colors/";
+    for (String type in types) {
+      if (colors.contains(type)) {
+        colorTypes.add(type);
+      }
+    }
+    if (colorTypes.length == 1) {
+      return '$path${colorTypes[0].toLowerCase()}.png';
+    }
+    if (colorTypes.contains('Victory')) {
+      if (colorTypes.contains('Action')) {
+        return '${path}action_victory.png';
+      }
+      if (colorTypes.contains('Reserve')) {
+        return '${path}reserve_victory.png';
+      }
+      if (colorTypes.contains('Treasure')) {
+        return '${path}treasure_victory.png';
+      }
+      if (colorTypes.contains('Duration')) {
+        return '${path}victory_duration.png';
+      }
+      if (colorTypes.contains('Reaction')) {
+        return '${path}victory_shelter.png';
+      }
+      return '${path}victory.png';
+    }
+    if (colorTypes.contains('Treasure')) {
+      if (colorTypes.contains('Duration')) {
+        return '${path}treasure_duration.png';
+      }
+      if (colorTypes.contains('Reaction')) {
+        return '${path}treasure_reaction.png';
+      }
+      if (colorTypes.contains('Reserve')) {
+        return '${path}treasure_reserve.png';
+      }
+      if (colorTypes.contains('Action')) {
+        return '${path}action_treasure.png';
+      }
+      return '${path}treasure.png';
+    }
+    if (colorTypes.contains('Duration')) {
+      if (colorTypes.contains('Reaction')) {
+        return '${path}duration_reaction.png';
+      }
+      return '${path}duration.png';
+    }
+    if (colorTypes.contains('Ruins')) {
+      return '${path}ruins.png';
+    }
+    if (colorTypes.contains('Action')) {
+      if (colorTypes.contains('Shelter')) {
+        return '${path}action_shelter.png';
+      }
+      return "${path}action.png";
+    }
+    debugPrint("Type not parsed to color correctly");
+    return "${path}action.png";
+  }
+
+  @override
+  String toString() {
+    return """
+    Name: $name
+    Types: $types
+    Expansion: $expansion
+    Text: $text
+    Categories: $categories
+    Subcards: $subCards
+    """;
   }
 }

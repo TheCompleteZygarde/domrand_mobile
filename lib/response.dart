@@ -69,8 +69,11 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                                   child: CircularProgressIndicator(),
                                 );
                               } else if (snapshot.hasError) {
-                                return Text(
-                                  'Error loading image, could not fetch from the wiki',
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Error loading image, could not fetch from the wiki. \n$card',
+                                  ),
                                 );
                               } else if (!snapshot.hasData ||
                                   snapshot.data == null) {
@@ -167,6 +170,17 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: card.getColor(),
                   foregroundColor: Colors.black,
+                  backgroundBuilder: (context, states, child) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(card.getColorImage()),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: child,
+                    );
+                  },
                 ),
                 child: Row(
                   children: [
@@ -206,6 +220,17 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: card.getColor(),
                   foregroundColor: Colors.black,
+                  backgroundBuilder: (context, states, child) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(card.getColorImage()),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: child,
+                    );
+                  },
                 ),
                 child: Row(
                   children: [
