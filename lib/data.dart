@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart';
 
@@ -62,8 +61,61 @@ class CardList {
     return playset;
   }
 
-  List<MyCard> getSpecialPlayset() {
+  List<MyCard> getSpecialPlayset(
+    List<String> selectedExpansions,
+    List<String>? rejectedTypes,
+    Map<String, RangeValues>? typeRanges,
+    RangeValues? costRange,
+    RangeValues? potionRange,
+  ) {
+    List<MyCard> cardsInExpansions = [];
+    for (String expansion in selectedExpansions) {
+      cardsInExpansions.addAll(getCardsByExpansion(expansion));
+    }
+    cardsInExpansions =
+        cardsInExpansions.where((card) {
+          for (String type in (rejectedTypes ?? [])) {
+            if (card.types.contains(type)) {
+              return false;
+            }
+          }
+          return ((costRange?.start.round() ?? 0) <= (card.cost ?? 0) &&
+              (card.cost ?? 0) <= (costRange?.end.round() ?? 10));
+        }).toList();
+
+    cardsInExpansions.shuffle();
     List<MyCard> playset = [];
+    while (cardsInExpansions.isNotEmpty) {
+      playset.addAll(cardsInExpansions.take(10 - playset.length).toList());
+      cardsInExpansions.removeRange(
+        0,
+        min<int>(cardsInExpansions.length, 10 - playset.length),
+      );
+      int potionCount = 0;
+      Map<String, int> typeCounters = {};
+      cardsLoop:
+      for (int i = 0; i < playset.length; i++) {
+        if (playset[i].potion) {
+          potionCount++;
+          if (potionCount > (potionRange?.end.round() ?? 10)) {
+            playset.removeAt(i);
+            i--;
+            continue;
+          }
+        }
+        for (MapEntry entry in (typeRanges?.entries ?? List.empty())) {
+          if (playset[i].types.contains(entry.key)) {
+            typeCounters[entry.key] = (typeCounters[entry.key] ?? 0) + 1;
+            if (typeCounters[entry.key]! > entry.value) {
+              playset.removeAt(i);
+              i--;
+              continue cardsLoop;
+            }
+          }
+        }
+      }
+      //TODO: solve too few cards of type chosen
+    }
 
     return playset;
   }
@@ -132,17 +184,18 @@ class CardList {
     }
     return types;
   }
-  
+
   Set<String> getTypes(List<String> selectedExpansions) {
-    List<MyCard> listOfCards = [];
     Set<String> types = {};
 
     for (String expansion in selectedExpansions) {
-      listOfCards.addAll(cards.where((card) => card.categories.isEmpty && card.expansion == expansion));
+      for (MyCard card in cards.where(
+        (card) => card.categories.isEmpty && card.expansion == expansion,
+      )) {
+        types.addAll(card.types);
+      }
     }
-    for (MyCard card in listOfCards) {
-      types.addAll(card.types);
-    }
+    types.remove('Split pile');
     return types;
   }
 
@@ -493,5 +546,10 @@ class MyCard {
       imageUrl = json['query']['pages'].values.first['imageinfo'].first['url'];
     }
     return imageUrl;
+  }
+
+  @override
+  String toString() {
+    return name;
   }
 }
