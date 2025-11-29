@@ -537,6 +537,9 @@ class MyCard {
         return '${path}victory_duration.png';
       }
       if (colorTypes.contains('Reaction')) {
+        return '${path}victory_reaction.png';
+      }
+      if (colorTypes.contains('Shelter')) {
         return '${path}victory_shelter.png';
       }
       return '${path}victory.png';
