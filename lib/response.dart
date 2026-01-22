@@ -60,7 +60,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                       itemBuilder: (context, index, realIndex) {
                         return InteractiveViewer(
                           child: Image.asset(
-                            "images/cards/${allCards[index].name.replaceAll(RegExp(r' |/'), '_')}.jpg",
+                            "assets/images/cards/${allCards[index].name.replaceAll(RegExp(r' |/'), '_')}.jpg",
                             fit: BoxFit.contain,
                           ),
                         );

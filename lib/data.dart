@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart';
 
 class CardList {
   final List<MyCard> cards;
@@ -447,7 +446,7 @@ class MyCard {
       return;
     }
     if (name == "Hermit") {
-      subCards = cardList.cards.where((card) => card.name == "Hermit").toList();
+      subCards = cardList.cards.where((card) => card.name == "Madman").toList();
       return;
     }
     if (name.contains("/")) {
@@ -459,6 +458,17 @@ class MyCard {
         );
         subCards!.add(subCard);
       }
+      return;
+    }
+    if (text.contains('Heirloom')) {
+      subCards = subCards ?? [];
+      debugPrint(text.substring(text.indexOf("Heirloom:")));
+      MyCard subCard = cardList.cards.firstWhere(
+        (card) => card.name == text.substring(text.indexOf("Heirloom:") + 10),
+      );
+      subCards!.add(subCard);
+    }
+    if (subCards != null) {
       return;
     }
     subCards = [];
@@ -484,22 +494,6 @@ class MyCard {
       images.add(AssetImage('assets/images/cost/Potion.png'));
     }
     return images;
-  }
-
-  Future<String?> getImageUrl() async {
-    if (imageUrl != null) {
-      return imageUrl;
-    }
-    final apiUrl = Uri.parse(
-      "https://wiki.dominionstrategy.com/api.php?action=query&titles=File:$name.jpg&prop=imageinfo&iiprop=url&format=json",
-    );
-
-    final response = await get(apiUrl);
-    if (response.statusCode == 200) {
-      final json = jsonDecode(response.body);
-      imageUrl = json['query']['pages'].values.first['imageinfo'].first['url'];
-    }
-    return imageUrl;
   }
 
   Color getColor() {
@@ -564,6 +558,9 @@ class MyCard {
         return '${path}duration_reaction.png';
       }
       return '${path}duration.png';
+    }
+    if (colorTypes.contains('Reaction')) {
+      return '${path}reaction.png';
     }
     if (colorTypes.contains('Ruins')) {
       return '${path}ruins.png';
