@@ -108,6 +108,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
 
   @override
   Widget build(BuildContext context) {
+    Random random = Random();
     return Scaffold(
       appBar: AppBar(title: const Text('Response')),
       body: ListView(
@@ -246,6 +247,20 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 ],
               ),
             ),
+          for (MyCard card in widget.landscapeCards.where(
+            (MyCard card) => card.types.contains("Trait"),
+          ))
+            Card(
+              child: Column(
+                children: [
+                  Text(
+                    card.name,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Text("${random.nextInt(11)}"),
+                ],
+              ),
+            ),
           Center(
             child: Text(
               "You will need:",
@@ -314,7 +329,6 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                       );
                       return;
                     }
-                    Random random = Random();
                     int randomNumber = random.nextInt(inputNumber) + 1;
                     _startingPlayer = randomNumber;
                   });
