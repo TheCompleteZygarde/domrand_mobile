@@ -2,5 +2,3 @@ Advanced randomization
 Add the rest of the sets
  - Plunder
  - Cornucopia/guilds 2e
-Add color to the cards in Response?
-Self-host the card images? (probably not)

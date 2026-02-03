@@ -462,7 +462,6 @@ class MyCard {
     }
     if (text.contains('Heirloom')) {
       subCards = subCards ?? [];
-      debugPrint(text.substring(text.indexOf("Heirloom:")));
       MyCard subCard = cardList.cards.firstWhere(
         (card) => card.name == text.substring(text.indexOf("Heirloom:") + 10),
       );
