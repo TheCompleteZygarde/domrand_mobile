@@ -16,28 +16,34 @@ class CardList {
     return CardList(cards: json.map((card) => MyCard.fromMap(card)).toList());
   }
 
-  List<MyCard> getCardsByExpansion(String expansion) {
-    return cards
-        .where((card) => card.expansion == expansion && card.categories.isEmpty)
-        .toList();
+  List<MyCard> getCardsByExpansion(String expansion, {List<int>? editions}) {
+    return cards.where((card) {
+      if (card.expansion != expansion || card.categories.isNotEmpty) {
+        return false;
+      }
+      if (editions == null || editions.isEmpty || card.editions == null) {
+        return true;
+      }
+      return card.editions!.any((ed) => editions.contains(ed));
+    }).toList();
   }
 
-  List<MyCard> getPlayset(List<String> selectedExpansions) {
+  List<MyCard> getPlayset(List<(String, List<int>?)> selectedExpansions) {
     List<MyCard> cardsInExpansions = [];
 
-    for (String expansion in selectedExpansions) {
-      cardsInExpansions.addAll(getCardsByExpansion(expansion));
+    for ((String, List<int>?) exp in selectedExpansions) {
+      cardsInExpansions.addAll(getCardsByExpansion(exp.$1, editions: exp.$2));
     }
     cardsInExpansions.shuffle();
 
     return cardsInExpansions.take(10).toList();
   }
 
-  List<MyCard> getFairPlayset(List<String> selectedExpansions) {
+  List<MyCard> getFairPlayset(List<(String, List<int>?)> selectedExpansions) {
     List<List<MyCard>> cardsInExpansions = [];
 
-    for (String expansion in selectedExpansions) {
-      List<MyCard> expCards = getCardsByExpansion(expansion);
+    for ((String, List<int>?) exp in selectedExpansions) {
+      List<MyCard> expCards = getCardsByExpansion(exp.$1, editions: exp.$2);
       expCards.shuffle();
       cardsInExpansions.add(expCards);
     }
@@ -60,7 +66,10 @@ class CardList {
     return playset;
   }
 
-  List<MyCard> getLandscapeCards(List<String> selectedExpansions, int count) {
+  List<MyCard> getLandscapeCards(
+    List<(String, List<int>?)> selectedExpansions,
+    int count,
+  ) {
     List<MyCard> newCards = [];
     List<String> landscapeTypes = [
       "Event",
@@ -69,13 +78,22 @@ class CardList {
       "Way",
       "Trait",
     ];
-    for (String expansion in selectedExpansions) {
+    for ((String, List<int>?) expansion in selectedExpansions) {
       newCards.addAll(
-        cards.where(
-          (card) =>
-              card.types.any((type) => landscapeTypes.contains(type)) &&
-              card.expansion == expansion,
-        ),
+        cards.where((card) {
+          if (!card.types.any((type) => landscapeTypes.contains(type))) {
+            return false;
+          }
+          if (card.expansion != expansion.$1) {
+            return false;
+          }
+          if (expansion.$2 == null ||
+              expansion.$2!.isEmpty ||
+              card.editions == null) {
+            return true;
+          }
+          return card.editions!.any((ed) => expansion.$2!.contains(ed));
+        }),
       );
     }
     newCards.shuffle();
@@ -93,17 +111,25 @@ class CardList {
   }
 
   List<MyCard> getCardsByCategory(
-    List<String> selectedExpansions,
+    List<(String, List<int>?)> selectedExpansions,
     String category,
     int count,
   ) {
     List<MyCard> newCards = [];
-    for (String expansion in selectedExpansions) {
+    for ((String, List<int>?) expansion in selectedExpansions) {
       newCards.addAll(
-        cards.where(
-          (card) =>
-              card.categories.contains(category) && card.expansion == expansion,
-        ),
+        cards.where((card) {
+          if (!card.categories.contains(category) ||
+              card.expansion != expansion.$1) {
+            return false;
+          }
+          if (expansion.$2 == null ||
+              expansion.$2!.isEmpty ||
+              card.editions == null) {
+            return true;
+          }
+          return card.editions!.any((ed) => expansion.$2!.contains(ed));
+        }),
       );
     }
     newCards.shuffle();
@@ -111,16 +137,24 @@ class CardList {
   }
 
   List<MyCard> getCardsByType(
-    List<String> selectedExpansions,
+    List<(String, List<int>?)> selectedExpansions,
     String type,
     int count,
   ) {
     List<MyCard> newCards = [];
-    for (String expansion in selectedExpansions) {
+    for ((String, List<int>?) expansion in selectedExpansions) {
       newCards.addAll(
-        cards.where(
-          (card) => card.types.contains(type) && card.expansion == expansion,
-        ),
+        cards.where((card) {
+          if (!card.types.contains(type) || card.expansion != expansion.$1) {
+            return false;
+          }
+          if (expansion.$2 == null ||
+              expansion.$2!.isEmpty ||
+              card.editions == null) {
+            return true;
+          }
+          return card.editions!.any((ed) => expansion.$2!.contains(ed));
+        }),
       );
     }
     newCards.shuffle();
@@ -138,13 +172,45 @@ class CardList {
     return cards;
   }
 
+  static (String, List<int>?) expansionStringParse(String expString) {
+    String expansion = expString.substring(0, expString.indexOf(','));
+    List<int>? editions = [];
+    if (expString.contains('1E')) {
+      editions.add(1);
+    }
+    if (expString.contains('2E')) {
+      editions.add(2);
+    }
+    if (editions.isEmpty) {
+      editions = null;
+    }
+    return (expansion, editions);
+  }
+
+  static List<String> reverseExpStringParse(
+    List<(String, List<int>?)> expList,
+  ) {
+    List<String> expansions = [];
+    for ((String, List<int>?) exp in expList) {
+      String expString = exp.$1;
+      if (exp.$2 != null && exp.$2!.isNotEmpty) {
+        for (int ed in exp.$2!) {
+          expString = "$expString, $ed";
+        }
+      }
+      expansions.add(expString);
+    }
+    return expansions;
+  }
+
   static Future refreshOwned() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final List<String>? preferredExpansions = prefs.getStringList(
       'ownedExpansions',
     );
     if (preferredExpansions != null && preferredExpansions.isNotEmpty) {
-      ownedExpansions = preferredExpansions;
+      ownedExpansions =
+          preferredExpansions.map((exp) => expansionStringParse(exp)).toList();
     }
   }
 }
@@ -172,15 +238,25 @@ Map<String, int> expansionMap = {
   */
 };
 
-List<String> ownedExpansions = [
+List<String> multiEdition = [
   'Dominion',
   'Intrigue',
-  'Dark Ages',
-  'Alchemy',
-  'Adventures',
-  'Empires',
-  'Nocturne',
-  'Rising Sun',
+  'Seaside',
+  'Prosperity',
+  'Cornucopia',
+  'Hinterlands',
+  'Guilds',
+];
+
+List<(String, List<int>?)> ownedExpansions = [
+  ('Dominion', [1]),
+  ('Intrigue', [2]),
+  ('Dark Ages', null),
+  ('Alchemy', null),
+  ('Adventures', null),
+  ('Empires', null),
+  ('Nocturne', null),
+  ('Rising Sun', null),
 ];
 
 List<String> colors = [
@@ -213,6 +289,7 @@ class MyCard {
   final List<String> types;
   final String expansion;
   final int expansionIndex;
+  final List<int>? editions;
   final String text;
   final int? cost;
   final int? victoryPoints;
@@ -231,6 +308,7 @@ class MyCard {
     required this.name,
     required this.types,
     required this.expansion,
+    this.editions,
     required this.expansionIndex,
     required this.text,
     this.cost,
@@ -250,6 +328,7 @@ class MyCard {
     : name = map['name'],
       types = List<String>.from(map['types']),
       expansion = parseExpansion(map['set']),
+      editions = parseEditions(map['set']),
       expansionIndex = expansionMap[parseExpansion(map['set'])] ?? 50,
       text = map['text'],
       cost = parseCost(map['cost']),
@@ -265,15 +344,25 @@ class MyCard {
       imageUrl = null;
 
   static String parseExpansion(String expansionString) {
-    if (expansionString.contains('Dominion') &&
-        expansionString.contains('1E')) {
-      return 'Dominion';
+    int? end = expansionString.indexOf(",");
+    if (end == -1) {
+      end = null;
     }
-    if (expansionString.contains('Intrigue') &&
-        expansionString.contains('2E')) {
-      return 'Intrigue';
+    return expansionString.substring(0, end);
+  }
+
+  static List<int>? parseEditions(String expansionString) {
+    List<int> editions = [];
+    if (expansionString.contains('1E')) {
+      editions.add(1);
     }
-    return expansionString;
+    if (expansionString.contains('2E')) {
+      editions.add(2);
+    }
+    if (editions.isEmpty) {
+      return null;
+    }
+    return editions;
   }
 
   static int? parseCost(String costString) {

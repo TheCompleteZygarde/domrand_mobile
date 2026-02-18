@@ -13,10 +13,10 @@ class ExpansionChoice extends StatefulWidget {
 }
 
 class _ExpansionChoiceState extends State<ExpansionChoice> {
-  final List<String> _selectedExpansions = [];
+  final List<(String, List<int>?)> _selectedExpansions = [];
   final TextEditingController _controller = TextEditingController();
 
-  final List<String> expansions = ownedExpansions;
+  final List<(String, List<int>?)> expansions = ownedExpansions;
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +36,82 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
               ),
             ),
             Divider(),
-            for (String expansion in expansions)
-              CheckboxListTile(
-                title: Text(expansion),
-                value: _selectedExpansions.contains(expansion),
-                onChanged: (bool? value) {
-                  setState(() {
-                    if (value == true) {
-                      _selectedExpansions.add(expansion);
-                    } else {
-                      _selectedExpansions.remove(expansion);
-                    }
-                  });
-                },
+            for ((String, List<int>?) expansion in expansions)
+              Container(
+                child:
+                    (expansion.$2 ?? []).length > 1
+                        ? Column(
+                          children: [
+                            Text("${expansion.$1}:"),
+                            for (int ed in expansion.$2!)
+                              CheckboxListTile(
+                                title: Text("Edition $ed"),
+                                value:
+                                    _selectedExpansions
+                                            .where(
+                                              (element) =>
+                                                  element.$1 == expansion.$1,
+                                            )
+                                            .firstOrNull !=
+                                        null &&
+                                    _selectedExpansions
+                                        .where(
+                                          (element) =>
+                                              element.$1 == expansion.$1,
+                                        )
+                                        .first
+                                        .$2!
+                                        .contains(ed),
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    (String, List<int>?)? elem =
+                                        _selectedExpansions
+                                            .where(
+                                              (element) =>
+                                                  element.$1 == expansion.$1,
+                                            )
+                                            .firstOrNull;
+                                    if (value == true) {
+                                      if (elem == null) {
+                                        _selectedExpansions.add((
+                                          expansion.$1,
+                                          [ed],
+                                        ));
+                                      } else {
+                                        _selectedExpansions[_selectedExpansions
+                                                .indexOf(elem)]
+                                            .$2!
+                                            .add(ed);
+                                      }
+                                    } else {
+                                      if (((elem ?? ("", [])).$2 ?? []).length <
+                                          2) {
+                                        _selectedExpansions.remove(elem);
+                                      } else {
+                                        _selectedExpansions[_selectedExpansions
+                                                .indexOf(elem!)]
+                                            .$2!
+                                            .remove(ed);
+                                      }
+                                    }
+                                  });
+                                },
+                              ),
+                          ],
+                        )
+                        : CheckboxListTile(
+                          title: Text(expansion.$1),
+                          value: _selectedExpansions.contains(expansion),
+                          onChanged: (bool? value) {
+                            setState(() {
+                              if (value == true) {
+                                _selectedExpansions.add(expansion);
+                              } else {
+                                _selectedExpansions.remove(expansion);
+                              }
+                            });
+                          },
+                        ),
               ),
             Card(
               child: CheckboxListTile(
@@ -87,7 +150,7 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
               child: Text(
                 'Randomize expansions',
                 style: Theme.of(context).textTheme.titleLarge,
-                ),
+              ),
             ),
             Row(
               children: [
@@ -109,8 +172,9 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
                       int randomNumber = random.nextInt(expansions.length) + 1;
                       _controller.text = randomNumber.toString();
                     });
-                  }, 
-                  child: Text('Randomize'))
+                  },
+                  child: Text('Randomize'),
+                ),
               ],
             ),
             SizedBox(height: 10),
@@ -122,8 +186,8 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                    _selectedExpansions.clear();
-                    _selectedExpansions.addAll(expansions);
+                  _selectedExpansions.clear();
+                  _selectedExpansions.addAll(expansions);
                 });
                 _randomizeSets();
               },
@@ -138,9 +202,7 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
   void _randomizeSets() {
     if (_selectedExpansions.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please select at least one expansion.'),
-        ),
+        const SnackBar(content: Text('Please select at least one expansion.')),
       );
       return;
     }
@@ -156,28 +218,37 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
     if (numberOfSets > _selectedExpansions.length) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Number of expansions exceeds number of selected expansions.'),
+          content: Text(
+            'Number of expansions exceeds number of selected expansions.',
+          ),
         ),
       );
       return;
     }
 
-    List<String> randomizedSets = _selectedExpansions.toList()..shuffle();
+    List<(String, List<int>?)> randomizedSets =
+        _selectedExpansions.toList()..shuffle();
     randomizedSets = randomizedSets.sublist(0, numberOfSets);
     _submitExpansions(selected: randomizedSets);
   }
 
-  void _submitExpansions({required List<String> selected}) {
-    List<String> selectedExpansions = [];
+  void _submitExpansions({required List<(String, List<int>?)> selected}) {
+    List<(String, List<int>?)> selectedExpansions = [];
     for (String expansion in expansionMap.keys) {
-      if (selected.contains(expansion)) {
-        selectedExpansions.add(expansion);
+      (String, List<int>?)? elem =
+          selected.where((elem) => elem.$1 == expansion).firstOrNull;
+      if (elem != null) {
+        selectedExpansions.add(elem);
       }
     }
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CardChoice(selectedExpansions: selectedExpansions, cardList: widget.cardList,),
+        builder:
+            (context) => CardChoice(
+              selectedExpansions: selectedExpansions,
+              cardList: widget.cardList,
+            ),
       ),
     );
   }

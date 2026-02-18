@@ -8,7 +8,7 @@ class CardChoice extends StatefulWidget {
     required this.selectedExpansions,
     required this.cardList,
   });
-  final List<String> selectedExpansions;
+  final List<(String, List<int>?)> selectedExpansions;
   final CardList cardList;
 
   @override
@@ -33,11 +33,11 @@ class _CardChoiceState extends State<CardChoice> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
-            for (String expansion in widget.selectedExpansions)
+            for ((String, List<int>?) expansion in widget.selectedExpansions)
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
-                  expansion,
+                  "${expansion.$1}${expansion.$2 == null ? "" : ", editions: ${expansion.$2}"}",
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
