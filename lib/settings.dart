@@ -11,6 +11,7 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final List<(String, List<int>?)> _selectedExpansions = ownedExpansions;
+  List<String> editionShown = [];
 
   @override
   Widget build(BuildContext context) {
@@ -36,37 +37,68 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         .firstOrNull;
                 if (multiEdition.contains(expansion)) {
                   return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(expansion),
-                      for (int ed in [1, 2])
-                        CheckboxListTile(
-                          title: Text("Edition $ed"),
-                          value: elem != null && elem.$2!.contains(ed),
-                          onChanged: (bool? value) {
-                            setState(() {
-                              if (value == true) {
-                                if (elem == null) {
-                                  _selectedExpansions.add((expansion, [ed]));
-                                } else {
-                                  _selectedExpansions[_selectedExpansions
-                                          .indexOf(elem)]
-                                      .$2!
-                                      .add(ed);
-                                }
-                              } else {
-                                if ((((elem ?? ("", [])).$2) ?? []).length <
-                                    2) {
-                                  _selectedExpansions.remove(elem);
-                                } else {
-                                  _selectedExpansions[_selectedExpansions
-                                          .indexOf(elem!)]
-                                      .$2!
-                                      .remove(ed);
-                                }
-                              }
-                            });
-                          },
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.all(16),
+                          minimumSize: Size(0, 0),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          alignment: Alignment.centerLeft,
+                          textStyle: Theme.of(context).textTheme.bodyLarge,
                         ),
+                        onPressed: () {
+                          setState(() {
+                            if (editionShown.contains(expansion)) {
+                              editionShown.remove(expansion);
+                            } else {
+                              editionShown.add(expansion);
+                            }
+                          });
+                        },
+                        child: Text(expansion),
+                      ),
+                      editionShown.contains(expansion)
+                          ? Column(
+                            children: [
+                              Divider(),
+                              for (int ed in [1, 2])
+                                CheckboxListTile(
+                                  title: Text("Edition $ed"),
+                                  value: elem != null && elem.$2!.contains(ed),
+                                  onChanged: (bool? value) {
+                                    setState(() {
+                                      if (value == true) {
+                                        if (elem == null) {
+                                          _selectedExpansions.add((
+                                            expansion,
+                                            [ed],
+                                          ));
+                                        } else {
+                                          _selectedExpansions[_selectedExpansions
+                                                  .indexOf(elem)]
+                                              .$2!
+                                              .add(ed);
+                                        }
+                                      } else {
+                                        if ((((elem ?? ("", [])).$2) ?? [])
+                                                .length <
+                                            2) {
+                                          _selectedExpansions.remove(elem);
+                                        } else {
+                                          _selectedExpansions[_selectedExpansions
+                                                  .indexOf(elem!)]
+                                              .$2!
+                                              .remove(ed);
+                                        }
+                                      }
+                                    });
+                                  },
+                                ),
+                              Divider(),
+                            ],
+                          )
+                          : const SizedBox.shrink(),
                     ],
                   );
                 }

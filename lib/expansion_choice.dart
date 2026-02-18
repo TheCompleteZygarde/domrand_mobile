@@ -18,6 +18,8 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
 
   final List<(String, List<int>?)> expansions = ownedExpansions;
 
+  List<String> editionShown = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,62 +43,97 @@ class _ExpansionChoiceState extends State<ExpansionChoice> {
                 child:
                     (expansion.$2 ?? []).length > 1
                         ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("${expansion.$1}:"),
-                            for (int ed in expansion.$2!)
-                              CheckboxListTile(
-                                title: Text("Edition $ed"),
-                                value:
-                                    _selectedExpansions
-                                            .where(
-                                              (element) =>
-                                                  element.$1 == expansion.$1,
-                                            )
-                                            .firstOrNull !=
-                                        null &&
-                                    _selectedExpansions
-                                        .where(
-                                          (element) =>
-                                              element.$1 == expansion.$1,
-                                        )
-                                        .first
-                                        .$2!
-                                        .contains(ed),
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    (String, List<int>?)? elem =
-                                        _selectedExpansions
-                                            .where(
-                                              (element) =>
-                                                  element.$1 == expansion.$1,
-                                            )
-                                            .firstOrNull;
-                                    if (value == true) {
-                                      if (elem == null) {
-                                        _selectedExpansions.add((
-                                          expansion.$1,
-                                          [ed],
-                                        ));
-                                      } else {
-                                        _selectedExpansions[_selectedExpansions
-                                                .indexOf(elem)]
-                                            .$2!
-                                            .add(ed);
-                                      }
-                                    } else {
-                                      if (((elem ?? ("", [])).$2 ?? []).length <
-                                          2) {
-                                        _selectedExpansions.remove(elem);
-                                      } else {
-                                        _selectedExpansions[_selectedExpansions
-                                                .indexOf(elem!)]
-                                            .$2!
-                                            .remove(ed);
-                                      }
-                                    }
-                                  });
-                                },
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.all(16),
+                                minimumSize: Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                alignment: Alignment.centerLeft,
+                                textStyle:
+                                    Theme.of(context).textTheme.bodyLarge,
                               ),
+                              onPressed: () {
+                                setState(() {
+                                  if (editionShown.contains(expansion.$1)) {
+                                    editionShown.remove(expansion.$1);
+                                  } else {
+                                    editionShown.add(expansion.$1);
+                                  }
+                                });
+                              },
+                              child: Text(expansion.$1),
+                            ),
+                            editionShown.contains(expansion.$1)
+                                ? Column(
+                                  children: [
+                                    Divider(),
+
+                                    for (int ed in expansion.$2!)
+                                      CheckboxListTile(
+                                        title: Text("Edition $ed"),
+                                        value:
+                                            _selectedExpansions
+                                                    .where(
+                                                      (element) =>
+                                                          element.$1 ==
+                                                          expansion.$1,
+                                                    )
+                                                    .firstOrNull !=
+                                                null &&
+                                            _selectedExpansions
+                                                .where(
+                                                  (element) =>
+                                                      element.$1 ==
+                                                      expansion.$1,
+                                                )
+                                                .first
+                                                .$2!
+                                                .contains(ed),
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            (String, List<int>?)? elem =
+                                                _selectedExpansions
+                                                    .where(
+                                                      (element) =>
+                                                          element.$1 ==
+                                                          expansion.$1,
+                                                    )
+                                                    .firstOrNull;
+                                            if (value == true) {
+                                              if (elem == null) {
+                                                _selectedExpansions.add((
+                                                  expansion.$1,
+                                                  [ed],
+                                                ));
+                                              } else {
+                                                _selectedExpansions[_selectedExpansions
+                                                        .indexOf(elem)]
+                                                    .$2!
+                                                    .add(ed);
+                                              }
+                                            } else {
+                                              if (((elem ?? ("", [])).$2 ?? [])
+                                                      .length <
+                                                  2) {
+                                                _selectedExpansions.remove(
+                                                  elem,
+                                                );
+                                              } else {
+                                                _selectedExpansions[_selectedExpansions
+                                                        .indexOf(elem!)]
+                                                    .$2!
+                                                    .remove(ed);
+                                              }
+                                            }
+                                          });
+                                        },
+                                      ),
+                                    Divider(),
+                                  ],
+                                )
+                                : SizedBox.shrink(),
                           ],
                         )
                         : CheckboxListTile(
