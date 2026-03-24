@@ -173,7 +173,14 @@ class CardList {
   }
 
   static (String, List<int>?) expansionStringParse(String expString) {
-    String expansion = expString.substring(0, expString.indexOf(','));
+    int end = expString.indexOf(',');
+    String expansion;
+    if (end != -1) {
+      expansion = expString.substring(0, expString.indexOf(','));
+    }
+    else {
+      expansion = expString;
+    }
     List<int>? editions = [];
     if (expString.contains('1E')) {
       editions.add(1);
@@ -195,7 +202,7 @@ class CardList {
       String expString = exp.$1;
       if (exp.$2 != null && exp.$2!.isNotEmpty) {
         for (int ed in exp.$2!) {
-          expString = "$expString, $ed";
+          expString = "$expString, ${ed}E";
         }
       }
       expansions.add(expString);
