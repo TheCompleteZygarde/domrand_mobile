@@ -176,9 +176,8 @@ class CardList {
     int end = expString.indexOf(',');
     String expansion;
     if (end != -1) {
-      expansion = expString.substring(0, expString.indexOf(','));
-    }
-    else {
+      expansion = expString.substring(0, end);
+    } else {
       expansion = expString;
     }
     List<int>? editions = [];
