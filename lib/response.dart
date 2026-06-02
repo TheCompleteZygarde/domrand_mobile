@@ -141,13 +141,7 @@ class _ResponseWidgetState extends State<ResponseWidget> {
                 ),
                 child: Row(
                   children: [
-                    Image(
-                      image: AssetImage(
-                        'assets/images/expansion/${card.expansion.replaceAll(" ", "_")}_icon.png',
-                      ),
-                      width: 24,
-                      height: 24,
-                    ),
+                    Image(image: card.getEditionImage(), width: 24, height: 24),
                     SizedBox(width: 5),
                     Expanded(child: Text(card.expansion)),
                     for (AssetImage image in card.getCostImages(

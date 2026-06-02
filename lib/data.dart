@@ -233,6 +233,7 @@ Map<String, int> expansionMap = {
   'Seaside': 8,
   'Prosperity': 9,
   'Cornucopia': 10,
+  'Cornucopia & Guilds': 10,
   'Hinterlands': 11,
   'Guilds': 12,
   'Renaissance': 13,
@@ -249,9 +250,7 @@ List<String> multiEdition = [
   'Intrigue',
   'Seaside',
   'Prosperity',
-  'Cornucopia',
   'Hinterlands',
-  'Guilds',
 ];
 
 List<(String, List<int>?)> ownedExpansions = [
@@ -522,18 +521,33 @@ class MyCard {
               .toList();
       return;
     }
+    // TODO: Might want to make sure they are sorted correctly
     if (name == "Page") {
-      subCards = cardList.cards.sublist(
-        cardList.cards.indexWhere((card) => card.name == "Treasure Hunter"),
-        cardList.cards.indexWhere((card) => card.name == "Champion") + 1,
-      );
+      subCards =
+          cardList.cards
+              .where(
+                (card) => [
+                  "Treasure Hunter",
+                  "Warrior",
+                  "Hero",
+                  "Champion",
+                ].contains(card.name),
+              )
+              .toList();
       return;
     }
     if (name == "Peasant") {
-      subCards = cardList.cards.sublist(
-        cardList.cards.indexWhere((card) => card.name == "Soldier"),
-        cardList.cards.indexWhere((card) => card.name == "Teacher") + 1,
-      );
+      subCards =
+          cardList.cards
+              .where(
+                (card) => [
+                  "Soldier",
+                  "Fugitive",
+                  "Disciple",
+                  "Teacher",
+                ].contains(card.name),
+              )
+              .toList();
       return;
     }
     if (name == "Vampire") {
@@ -588,6 +602,14 @@ class MyCard {
       images.add(AssetImage('assets/images/cost/Potion.png'));
     }
     return images;
+  }
+
+  AssetImage getEditionImage() {
+    String image = expansion.replaceAll(" ", "_");
+    if (editions != null && !editions!.contains(2)) {
+      image += "_old";
+    }
+    return AssetImage('assets/images/expansion/${image}_icon.png');
   }
 
   Color getColor() {

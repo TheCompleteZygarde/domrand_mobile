@@ -45,4 +45,5 @@ app.*.map.json
 /android/app/release
 
 # Local helpers
-/assets/images/scraper
+/assets/images/scraper/*.html
+/assets/images/scraper/*.json
