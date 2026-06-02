@@ -9,3 +9,8 @@ You can download the program from the releases tab, download the apk from the la
 This project is built using Flutter. 
 
 The simplest way of building it is cloning it onto your computer and running it using the Flutter extension for VSCode.
+
+## Todo:
+
+- [ ] Advanced randomization
+- [ ] Solve using only Cornucopia e1 / Guilds e1
